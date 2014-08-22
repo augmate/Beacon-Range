@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center"
+              tools:context="${packageName}.${activityClass}">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Small Text"
+            android:id="@+id/debug" android:layout_gravity="center_horizontal"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="127dp" android:weightSum="1">
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/leftImageView" android:src="@drawable/green_beacon" android:layout_gravity="left"
+                android:visibility="invisible"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/centerImageView" android:visibility="invisible"
+                android:src="@drawable/blue_beacon"/>
+        <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rightImageView" android:src="@drawable/purple_beacon" android:focusableInTouchMode="true"
+                android:layout_gravity="right" android:visibility="invisible"/>
+    </LinearLayout>
+    <TextView
+            android:layout_marginTop="30dp"
+            android:drawablePadding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:drawableLeft="@android:drawable/ic_dialog_info"
+            android:text="@string/status"
+            android:textSize="26dp"
+            android:id="@+id/status"/>
+
+</LinearLayout>
