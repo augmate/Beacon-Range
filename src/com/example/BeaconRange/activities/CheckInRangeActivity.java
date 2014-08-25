@@ -16,9 +16,7 @@ import com.example.BeaconRange.Beaconizer;
 import com.example.BeaconRange.IReceiveBeaconsCallbacks;
 import com.example.BeaconRange.R;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCallbacks {
     Beaconizer newBeaconManager;
@@ -28,6 +26,8 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
     private int thresholdCount = 0;
     private List<BeaconOption> currentBeaconArray = new ArrayList<BeaconOption>();
     private ArrayList<ImageView> beaconImages = new ArrayList<ImageView>();
+    private HashMap<String, Integer> map = new HashMap<String, Integer>();
+
     private ImageView rightImage, centerImage, leftImage;
     private TextView status;
 
@@ -48,7 +48,8 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         Log.d(TAG,"BeaconManager configured.");
     }
 
-    public void onReceiveNearbyBeacons(List<BeaconOption> beacons) {
+    public void onReceiveNearbyBeacons(List<BeaconOption> Beacons) {
+        /*
         if(hasSameBeacons(currentBeaconArray, beacons)) {
             thresholdCount += beacons.size();
             if(beacons.size()==0) thresholdCount++;
@@ -56,35 +57,55 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         else {
             currentBeaconArray = beacons;
             thresholdCount = 0;
+        }*/
+        for(BeaconOption b:Beacons){
+            Integer value = map.get(b.name);
+            Log.d(TAG,value+"");
+            if(value==null)
+                map.put(b.name,1);
+            else
+                map.put(b.name,value+1);
         }
-
+        thresholdCount++;
+        ((TextView) findViewById(R.id.debug)).setText(thresholdCount+"");
         if (thresholdCount == beaconThreshold) {
             for(ImageView i:beaconImages) i.setVisibility(View.INVISIBLE);
-            switch(beacons.size()) {
+            ArrayList<String> validBeacons = getValidBeacons(map, beaconThreshold);
+            switch(validBeacons.size()) {
                 case 0:
                     status.setText("No Beacons detected. Searching...");
                     break;
                 case 1:
-                    toggleBeaconIcon(beacons.get(0).name, centerImage);
-                    status.setText(beacons.get(0).name + " detected");
+                    toggleBeaconIcon(validBeacons.get(0), centerImage);
+                    status.setText(validBeacons.get(0) + " detected");
                     break;
                 case 2:
-                    toggleBeaconIcon(beacons.get(0).name, leftImage);
-                    toggleBeaconIcon(beacons.get(1).name, rightImage);
-                    status.setText("You're in between the " + beacons.get(0).name + " beacon and the " +
-                            beacons.get(1).name + " beacon");
+                    toggleBeaconIcon(validBeacons.get(0), leftImage);
+                    toggleBeaconIcon(validBeacons.get(1), rightImage);
+                    status.setText("You're in between the " + validBeacons.get(0) + " beacon and the " +
+                            validBeacons.get(1) + " beacon");
                     break;
                 case 3:
-                    toggleBeaconIcon(beacons.get(0).name, leftImage);
-                    toggleBeaconIcon(beacons.get(1).name, rightImage);
-                    toggleBeaconIcon(beacons.get(2).name, centerImage);
+                    toggleBeaconIcon(validBeacons.get(0), leftImage);
+                    toggleBeaconIcon(validBeacons.get(1), rightImage);
+                    toggleBeaconIcon(validBeacons.get(2), centerImage);
                     status.setText("You're in the center of all three beacons.");
                     break;
                 default:
                     break;
             }
+            map.clear();
             thresholdCount = 0;
         }
+    }
+
+    private ArrayList<String> getValidBeacons(HashMap<String, Integer> map, int beaconThreshold) {
+        ArrayList<String> validNames = new ArrayList<String>();
+        for(String name:map.keySet())
+            if(map.get(name)>beaconThreshold/2)
+                validNames.add(name);
+        ((TextView) findViewById(R.id.debug)).setText("Map: " + map.toString());
+        return validNames;
     }
 
     @Override
