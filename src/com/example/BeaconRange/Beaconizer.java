@@ -49,8 +49,8 @@ public class Beaconizer {
                 for(Beacon beacon : rawBeacons) {
                     BeaconData processedBeacon = getBeaconData(beacon);
 
-                    //if(processedBeacon.distance < beaconCutoffDist) {
-                    if(processedBeacon.proximity != Utils.Proximity.FAR){
+                    if(processedBeacon.distance < beaconCutoffDist && processedBeacon.signalStrength >-90) {
+                    //if(processedBeacon.proximity != Utils.Proximity.FAR){
                         processedBeacons.add(processedBeacon);
                     }
                 }
@@ -119,6 +119,7 @@ public class Beaconizer {
         public List<String> colors = new ArrayList<String>(); // colors/resources this beacon represents
         public Utils.Proximity proximity; // proximity of distance
         public float distance; // distance to user
+        public int signalStrength; //0 is strongest and -100 is weakest
     }
     /*
         Beacon proximity
@@ -153,14 +154,17 @@ public class Beaconizer {
     protected BeaconData getBeaconData(Beacon beacon) {
         String beaconName = getBeaconName(beacon);
         float distance = (float) Utils.computeAccuracy(beacon);
+        int rssi = beacon.getRssi(); //Received Signal Strength Indication
         Utils.Proximity proximity = Utils.computeProximity(beacon);
 
-        Log.d(TAG, "  Beacon " + beaconName + " accuracy=" + String.format("%.2f", distance) + " power=" + beacon.getMeasuredPower() + " rssi=" + beacon.getRssi());
+        Log.d(TAG, "  Beacon " + beaconName + " accuracy=" + String.format("%.2f", distance) + " power=" + beacon.getMeasuredPower() +
+                " rssi=" + beacon.getRssi() + " proximity" + proximity);
 
         // beacon data could be stored in the beacon, or pulled from a web-service
         BeaconData data = new BeaconData();
         data.distance = distance;
         data.proximity = proximity;
+        data.signalStrength = rssi;
 
         if (beaconName.equals("purple")) {
             data.colors.add("purple");
