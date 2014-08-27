@@ -20,14 +20,17 @@ public class Beaconizer {
     final String TAG = "BEACONIZER";
     private BeaconManager beaconManager;
     boolean isRunning = false;
-
-    private HashMap<String, Integer> nameToImageID = new HashMap<String, Integer>();
+    public static final HashMap<Integer, BeaconAttrib> minorToBeaconAttrib;
+    static
+    {
+        minorToBeaconAttrib = new HashMap<Integer, BeaconAttrib>();
+        minorToBeaconAttrib.put(2233, new BeaconAttrib("purple", R.drawable.purple_beacon));
+        minorToBeaconAttrib.put(9, new BeaconAttrib("blue", R.drawable.blue_beacon));
+        minorToBeaconAttrib.put(7, new BeaconAttrib("green", R.drawable.green_beacon));
+    }
 
     public Beaconizer(Context context, final IReceiveBeaconsCallbacks receiver, final double beaconCutoffDist) {
         Log.d(TAG,"Beacon Service is ready. Starting ranging scan.");
-        nameToImageID.put("purple", R.drawable.purple_beacon);
-        nameToImageID.put("blue", R.drawable.blue_beacon);
-        nameToImageID.put("green", R.drawable.green_beacon);
         beaconManager = new BeaconManager(context);
 
         beaconManager.setRangingListener(new BeaconManager.RangingListener() {
@@ -174,9 +177,5 @@ public class Beaconizer {
             data.colors.add("green");
         }
         return data;
-    }
-
-    public HashMap<String, Integer> getNameToImageID() {
-        return nameToImageID;
     }
 }

@@ -148,7 +148,8 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
 
     private void toggleBeaconIcon(String name, ImageView imageView){
         imageView.setVisibility(View.VISIBLE);
-        imageView.setImageResource(newBeaconManager.getNameToImageID().get(name));
+        //TODO Refactoring Code
+        imageView.setImageResource(newBeaconManager.minorToBeaconAttrib.get(name)..getImageID());
     }
 
 }
