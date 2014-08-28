@@ -1,20 +1,20 @@
 package com.example.BeaconRange;
 
 /**
- * Created by darien on 8/18/14.
- */
+    * Created by darien on 8/18/14.
+            */
 
-import android.content.Context;
-import android.os.RemoteException;
-import android.util.Log;
-import com.estimote.sdk.Beacon;
-import com.estimote.sdk.BeaconManager;
-import com.estimote.sdk.Region;
-import com.estimote.sdk.Utils;
+            import android.content.Context;
+    import android.os.RemoteException;
+    import android.util.Log;
+    import com.estimote.sdk.Beacon;
+    import com.estimote.sdk.BeaconManager;
+    import com.estimote.sdk.Region;
+    import com.estimote.sdk.Utils;
 
-import java.util.*;
+    import java.util.*;
 
-public class Beaconizer {
+    public class Beaconizer {
 
     private static final Region BEACON_SEARCH_MASK = new Region("rid", null, null, null);
     final String TAG = "BEACONIZER";
@@ -44,36 +44,33 @@ public class Beaconizer {
 
                 // cut-off point for beacons
                 // when at 15% broadcast power, 4 seems to be far enough to ignore
-                // TODO: does the reported beacon distance change with power?
-                ///double beaconCutoffDist = 2;
 
-                List<BeaconData> processedBeacons = new ArrayList<BeaconData>();
+                List<Beacon> processedBeacons = new ArrayList<Beacon>();
 
                 for(Beacon beacon : rawBeacons) {
-                    BeaconData processedBeacon = getBeaconData(beacon);
+                    String color = minorToBeaconAttrib.get(beacon.getMinor()).getColor();
+                    if(color ==null) color = "unknown";
+                    float distance = (float) Utils.computeAccuracy(beacon);
+                    int rssi = beacon.getRssi(); //Received Signal Strength Indication
+                    Utils.Proximity proximity = Utils.computeProximity(beacon);
 
-                    if(processedBeacon.distance < beaconCutoffDist && processedBeacon.signalStrength >-90) {
+                    if(distance < beaconCutoffDist && rssi >-90) {
                     //if(processedBeacon.proximity != Utils.Proximity.FAR){
-                        processedBeacons.add(processedBeacon);
+                        processedBeacons.add(beacon);
                     }
+
+                    Log.d(TAG, "  Beacon " + color + " accuracy=" + String.format("%.2f", distance) + " power=" + beacon.getMeasuredPower() +
+                            " rssi=" + rssi + " proximity" + proximity);
                 }
 
-                Collections.sort(processedBeacons, new Comparator<BeaconData>() {
+                Collections.sort(processedBeacons, new Comparator<Beacon>() {
                     @Override
-                    public int compare(BeaconData lhs, BeaconData rhs) {
+                    public int compare(Beacon lhs, Beacon rhs) {
                         // assuming precision down to 0.01 units ("meters")
-                        return (int) (100 * (lhs.distance - rhs.distance));
+                        return (int) (100 * ((float) Utils.computeAccuracy(lhs) - (float) Utils.computeAccuracy(rhs)));
                     }
                 });
-
-
-                List<BeaconOption> beacons = new ArrayList<BeaconOption>();
-                for (BeaconData processedBeacon : processedBeacons) {
-                    for(String color : processedBeacon.colors)
-                        beacons.add(new BeaconOption(color, processedBeacon.proximity, processedBeacon.distance));
-                }
-
-                receiver.onReceiveNearbyBeacons(beacons);
+                receiver.onReceiveNearbyBeacons(processedBeacons);
             }
         });
     }
@@ -117,65 +114,7 @@ public class Beaconizer {
         }
     }
 
-    private class BeaconData {
 
-        public List<String> colors = new ArrayList<String>(); // colors/resources this beacon represents
-        public Utils.Proximity proximity; // proximity of distance
-        public float distance; // distance to user
-        public int signalStrength; //0 is strongest and -100 is weakest
-    }
-    /*
-        Beacon proximity
-        -------------------------------------------------
-        Computes Utils.Proximity based on distance in meters. Current distance ranges:
-        immediate: 0 - 0.5m
-        near: 0.5m - 3.0m
-        far: 3.0m - ...
 
-        beacon identities
-        -------------------------------------------------
-        color           major:minor
-        purple          40125:2233
-        blue      1:9
-        green     1:7
 
-        once we can modify beacon data, this won't be necessary
-     */
-    protected String getBeaconName(Beacon beacon) {
-        String name = beacon.getMajor() + ":" + beacon.getMinor();
-
-        if(name.equals("40125:2233"))
-            return "purple";
-        if(name.equals("1:9"))
-            return "blue";
-        if(name.equals("1:7"))
-            return "green";
-
-        return "(unknown beacon)";
-    }
-
-    protected BeaconData getBeaconData(Beacon beacon) {
-        String beaconName = getBeaconName(beacon);
-        float distance = (float) Utils.computeAccuracy(beacon);
-        int rssi = beacon.getRssi(); //Received Signal Strength Indication
-        Utils.Proximity proximity = Utils.computeProximity(beacon);
-
-        Log.d(TAG, "  Beacon " + beaconName + " accuracy=" + String.format("%.2f", distance) + " power=" + beacon.getMeasuredPower() +
-                " rssi=" + beacon.getRssi() + " proximity" + proximity);
-
-        // beacon data could be stored in the beacon, or pulled from a web-service
-        BeaconData data = new BeaconData();
-        data.distance = distance;
-        data.proximity = proximity;
-        data.signalStrength = rssi;
-
-        if (beaconName.equals("purple")) {
-            data.colors.add("purple");
-        } else if (beaconName.equals("blue")) {
-            data.colors.add("blue");
-        } else if (beaconName.equals("green")) {
-            data.colors.add("green");
-        }
-        return data;
-    }
 }

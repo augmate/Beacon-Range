@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.BeaconRange.BeaconOption;
+import com.estimote.sdk.Beacon;
 import com.example.BeaconRange.Beaconizer;
 import com.example.BeaconRange.IReceiveBeaconsCallbacks;
 import com.example.BeaconRange.R;
@@ -24,9 +24,9 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
     final double beaconCutoffDist = 3;
     private int beaconThreshold = 6;
     private int thresholdCount = 0;
-    private List<BeaconOption> currentBeaconArray = new ArrayList<BeaconOption>();
+    private List<Beacon> currentBeaconArray = new ArrayList<Beacon>();
     private ArrayList<ImageView> beaconImages = new ArrayList<ImageView>();
-    private HashMap<String, Integer> map = new HashMap<String, Integer>();
+    private HashMap<Beacon, Integer> map = new HashMap<Beacon, Integer>();
 
     private ImageView rightImage, centerImage, leftImage;
     private TextView status;
@@ -48,7 +48,7 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         Log.d(TAG,"BeaconManager configured.");
     }
 
-    public void onReceiveNearbyBeacons(List<BeaconOption> Beacons) {
+    public void onReceiveNearbyBeacons(List<Beacon> Beacons) {
         /*
         if(hasSameBeacons(currentBeaconArray, beacons)) {
             thresholdCount += beacons.size();
@@ -58,38 +58,40 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
             currentBeaconArray = beacons;
             thresholdCount = 0;
         }*/
-        for(BeaconOption b:Beacons){
-            Integer value = map.get(b.name);
+        for(Beacon b:Beacons){
+            Integer value = map.get(b);
             Log.d(TAG,value+"");
             if(value==null)
-                map.put(b.name,1);
+                map.put(b,1);
             else
-                map.put(b.name,value+1);
+                map.put(b,value+1);
         }
         thresholdCount++;
-        ((TextView) findViewById(R.id.debug)).setText(thresholdCount+"");
+        ((TextView) findViewById(R.id.debug)).setText(map.size()+"");
+        
         if (thresholdCount == beaconThreshold) {
             for(ImageView i:beaconImages) i.setVisibility(View.INVISIBLE);
-            ArrayList<String> validBeacons = getValidBeacons(map, beaconThreshold);
+            ArrayList<Beacon> validBeacons = getValidBeacons(map, beaconThreshold);
             switch(validBeacons.size()) {
                 case 0:
-                    status.setText("No Beacons detected. Searching...");
+                    status.setText("No beacons detected. Searching...");
                     break;
                 case 1:
                     toggleBeaconIcon(validBeacons.get(0), centerImage);
-                    status.setText(validBeacons.get(0) + " detected");
+                    status.setText(getColor(validBeacons.get(0))+" beacon detected");
                     break;
                 case 2:
                     toggleBeaconIcon(validBeacons.get(0), leftImage);
                     toggleBeaconIcon(validBeacons.get(1), rightImage);
-                    status.setText("You're in between the " + validBeacons.get(0) + " beacon and the " +
-                            validBeacons.get(1) + " beacon");
+                    status.setText("You're near a " + getColor(validBeacons.get(0)) + " beacon and a " +
+                            getColor(validBeacons.get(1)) + " beacon");
                     break;
                 case 3:
                     toggleBeaconIcon(validBeacons.get(0), leftImage);
                     toggleBeaconIcon(validBeacons.get(1), rightImage);
                     toggleBeaconIcon(validBeacons.get(2), centerImage);
-                    status.setText("You're in the center of all three beacons.");
+                    status.setText("You're near a " + getColor(validBeacons.get(0)) + " beacon, a " +
+                            getColor(validBeacons.get(1)) + " beacon, and a " + getColor(validBeacons.get(2)) + " beacon");
                     break;
                 default:
                     break;
@@ -99,13 +101,17 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         }
     }
 
-    private ArrayList<String> getValidBeacons(HashMap<String, Integer> map, int beaconThreshold) {
-        ArrayList<String> validNames = new ArrayList<String>();
-        for(String name:map.keySet())
-            if(map.get(name)>beaconThreshold/2)
-                validNames.add(name);
+    private String getColor(Beacon beacon) {
+        return newBeaconManager.minorToBeaconAttrib.get(beacon.getMinor()).getColor();
+    }
+
+    private ArrayList<Beacon> getValidBeacons(HashMap<Beacon, Integer> map, int beaconThreshold) {
+        ArrayList<Beacon> validBeacons = new ArrayList<Beacon>();
+        for(Beacon b:map.keySet())
+            if(map.get(b)>beaconThreshold/2)
+                validBeacons.add(b);
         ((TextView) findViewById(R.id.debug)).setText("Map: " + map.toString());
-        return validNames;
+        return validBeacons;
     }
 
     @Override
@@ -126,7 +132,7 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         newBeaconManager.stopScanning();
     }
 
-    private boolean hasSameBeacons(List<BeaconOption> l1, List<BeaconOption> l2) {
+    private boolean hasSameBeacons(List<Beacon> l1, List<Beacon> l2) {
         ArrayList<String> names1 = getBeaconNames(l1);
         ArrayList<String> names2 = getBeaconNames(l2);
         ((TextView) findViewById(R.id.debug)).setText("Incoming Beacons: " + names2.toString() +"\n"+ "Current :"+ names1.toString() +"\n" + thresholdCount);
@@ -138,18 +144,18 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         return names1.isEmpty();
     }
 
-    private ArrayList<String> getBeaconNames(List<BeaconOption> beacons){
+    private ArrayList<String> getBeaconNames(List<Beacon> beacons){
         ArrayList<String> names = new ArrayList<String>();
-        for (BeaconOption o : beacons) {
-            names.add(o.name);
+        for (Beacon o : beacons) {
+            names.add(o.getMacAddress());
         }
         return names;
     }
 
-    private void toggleBeaconIcon(String name, ImageView imageView){
+    private void toggleBeaconIcon(Beacon b, ImageView imageView){
         imageView.setVisibility(View.VISIBLE);
         //TODO Refactoring Code
-        imageView.setImageResource(newBeaconManager.minorToBeaconAttrib.get(name)..getImageID());
+        imageView.setImageResource(newBeaconManager.minorToBeaconAttrib.get(b.getMinor()).getImageID());
     }
 
 }
