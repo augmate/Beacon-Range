@@ -88,25 +88,28 @@
       <file leaf-file-name="CheckInRangeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="26" selection-start="3084" selection-end="3084" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2839">
+            <state line="147" column="41" selection-start="5913" selection-end="5913" vertical-scroll-proportion="0.0" vertical-offset="2074" max-vertical-offset="3213">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#807#815#0" expanded="true" />
-                <element signature="e#880#891#0" expanded="true" />
-                <element signature="e#949#966#0" expanded="true" />
-                <element signature="e#4376#4384#0" expanded="true" />
-                <element signature="e#5593#5601#0" expanded="true" />
+                <element signature="e#1141#1152#0" expanded="true" />
+                <element signature="e#1210#1227#0" expanded="true" />
+                <element signature="e#1376#1384#0" expanded="true" />
+                <element signature="e#5401#5409#0" expanded="true" />
+                <element signature="e#6656#6664#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeaconParseManager.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="BeaconParseManager.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="55" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+            <state line="18" column="45" selection-start="554" selection-end="554" vertical-scroll-proportion="0.45341614" vertical-offset="14" max-vertical-offset="1173">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#484#505#0" expanded="true" />
+                <element signature="e#1178#1559#0" expanded="true" />
+                <element signature="e#1548#1549#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,24 +118,24 @@
       <file leaf-file-name="Beaconizer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="87" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="2006">
+            <state line="72" column="0" selection-start="3259" selection-end="3259" vertical-scroll-proportion="0.0" vertical-offset="874" max-vertical-offset="2006">
               <folding>
-                <element signature="e#1320#3284#0" expanded="true" />
-                <element signature="e#1876#1884#0" expanded="true" />
-                <element signature="e#2834#3191#0" expanded="true" />
-                <element signature="e#3172#3173#0" expanded="true" />
-                <element signature="e#3273#3274#0" expanded="true" />
-                <element signature="e#3643#4072#0" expanded="true" />
-                <element signature="e#4061#4062#0" expanded="true" />
+                <element signature="e#1385#3349#0" expanded="true" />
+                <element signature="e#1941#1949#0" expanded="true" />
+                <element signature="e#2899#3256#0" expanded="true" />
+                <element signature="e#3237#3238#0" expanded="true" />
+                <element signature="e#3338#3339#0" expanded="true" />
+                <element signature="e#3708#4137#0" expanded="true" />
+                <element signature="e#4126#4127#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeaconMinorMap.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconMinorMap.java">
+      <file leaf-file-name="DefaultHashMap.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/DefaultHashMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="392" selection-end="392" vertical-scroll-proportion="0.31378937" vertical-offset="0" max-vertical-offset="921">
+            <state line="14" column="16" selection-start="331" selection-end="354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
               <folding />
             </state>
           </provider>
@@ -204,11 +207,12 @@
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/BeaconAttrib.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconAttrib.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/IReceiveBeaconsCallbacks.java" />
-        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/ParseManager.java" />
-        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconMinorMap.java" />
+        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/DefaultHashMap.java" />
+        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java" />
       </list>
     </option>
   </component>
@@ -592,12 +596,12 @@
       <workItem from="1408647374938" duration="13757000" />
       <workItem from="1408721245568" duration="9916000" />
       <workItem from="1408737195243" duration="5432000" />
-      <workItem from="1409174834929" duration="7233000" />
+      <workItem from="1409174834929" duration="16071000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51549000" />
+    <option name="totallyTimeSpent" value="60387000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -618,15 +622,15 @@
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32916668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29250264" sideWeight="0.4991708" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284055" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29250264" sideWeight="0.4991708" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15104167" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328125" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3273495" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -661,11 +665,11 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2720">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#807#815#0" expanded="true" />
-            <element signature="e#880#891#0" expanded="true" />
-            <element signature="e#949#966#0" expanded="true" />
-            <element signature="e#4376#4384#0" expanded="true" />
-            <element signature="e#5593#5601#0" expanded="true" />
+            <element signature="e#1141#1152#0" expanded="true" />
+            <element signature="e#1210#1227#0" expanded="true" />
+            <element signature="e#1376#1384#0" expanded="true" />
+            <element signature="e#5401#5409#0" expanded="true" />
+            <element signature="e#6656#6664#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -674,13 +678,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3196">
           <folding>
-            <element signature="e#1320#3284#0" expanded="true" />
-            <element signature="e#1876#1884#0" expanded="true" />
-            <element signature="e#2834#3191#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3643#4072#0" expanded="true" />
-            <element signature="e#4061#4062#0" expanded="true" />
+            <element signature="e#1385#3349#0" expanded="true" />
+            <element signature="e#1941#1949#0" expanded="true" />
+            <element signature="e#2899#3256#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3338#3339#0" expanded="true" />
+            <element signature="e#3708#4137#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,11 +704,11 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#807#815#0" expanded="true" />
-            <element signature="e#880#891#0" expanded="true" />
-            <element signature="e#949#966#0" expanded="true" />
-            <element signature="e#4376#4384#0" expanded="true" />
-            <element signature="e#5593#5601#0" expanded="true" />
+            <element signature="e#1141#1152#0" expanded="true" />
+            <element signature="e#1210#1227#0" expanded="true" />
+            <element signature="e#1376#1384#0" expanded="true" />
+            <element signature="e#5401#5409#0" expanded="true" />
+            <element signature="e#6656#6664#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -713,13 +717,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1320#3284#0" expanded="true" />
-            <element signature="e#1876#1884#0" expanded="true" />
-            <element signature="e#2834#3191#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3643#4072#0" expanded="true" />
-            <element signature="e#4061#4062#0" expanded="true" />
+            <element signature="e#1385#3349#0" expanded="true" />
+            <element signature="e#1941#1949#0" expanded="true" />
+            <element signature="e#2899#3256#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3338#3339#0" expanded="true" />
+            <element signature="e#3708#4137#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -744,11 +748,11 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#807#815#0" expanded="true" />
-            <element signature="e#880#891#0" expanded="true" />
-            <element signature="e#949#966#0" expanded="true" />
-            <element signature="e#4376#4384#0" expanded="true" />
-            <element signature="e#5593#5601#0" expanded="true" />
+            <element signature="e#1141#1152#0" expanded="true" />
+            <element signature="e#1210#1227#0" expanded="true" />
+            <element signature="e#1376#1384#0" expanded="true" />
+            <element signature="e#5401#5409#0" expanded="true" />
+            <element signature="e#6656#6664#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -767,13 +771,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1320#3284#0" expanded="true" />
-            <element signature="e#1876#1884#0" expanded="true" />
-            <element signature="e#2834#3191#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3643#4072#0" expanded="true" />
-            <element signature="e#4061#4062#0" expanded="true" />
+            <element signature="e#1385#3349#0" expanded="true" />
+            <element signature="e#1941#1949#0" expanded="true" />
+            <element signature="e#2899#3256#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3338#3339#0" expanded="true" />
+            <element signature="e#3708#4137#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -795,11 +799,11 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#807#815#0" expanded="true" />
-            <element signature="e#880#891#0" expanded="true" />
-            <element signature="e#949#966#0" expanded="true" />
-            <element signature="e#4376#4384#0" expanded="true" />
-            <element signature="e#5593#5601#0" expanded="true" />
+            <element signature="e#1141#1152#0" expanded="true" />
+            <element signature="e#1210#1227#0" expanded="true" />
+            <element signature="e#1376#1384#0" expanded="true" />
+            <element signature="e#5401#5409#0" expanded="true" />
+            <element signature="e#6656#6664#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -825,13 +829,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1320#3284#0" expanded="true" />
-            <element signature="e#1876#1884#0" expanded="true" />
-            <element signature="e#2834#3191#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3643#4072#0" expanded="true" />
-            <element signature="e#4061#4062#0" expanded="true" />
+            <element signature="e#1385#3349#0" expanded="true" />
+            <element signature="e#1941#1949#0" expanded="true" />
+            <element signature="e#2899#3256#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3338#3339#0" expanded="true" />
+            <element signature="e#3708#4137#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -858,11 +862,11 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#807#815#0" expanded="true" />
-            <element signature="e#880#891#0" expanded="true" />
-            <element signature="e#949#966#0" expanded="true" />
-            <element signature="e#4376#4384#0" expanded="true" />
-            <element signature="e#5593#5601#0" expanded="true" />
+            <element signature="e#1141#1152#0" expanded="true" />
+            <element signature="e#1210#1227#0" expanded="true" />
+            <element signature="e#1376#1384#0" expanded="true" />
+            <element signature="e#5401#5409#0" expanded="true" />
+            <element signature="e#6656#6664#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -888,13 +892,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1320#3284#0" expanded="true" />
-            <element signature="e#1876#1884#0" expanded="true" />
-            <element signature="e#2834#3191#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3643#4072#0" expanded="true" />
-            <element signature="e#4061#4062#0" expanded="true" />
+            <element signature="e#1385#3349#0" expanded="true" />
+            <element signature="e#1941#1949#0" expanded="true" />
+            <element signature="e#2899#3256#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3338#3339#0" expanded="true" />
+            <element signature="e#3708#4137#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -921,11 +925,11 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#807#815#0" expanded="true" />
-            <element signature="e#880#891#0" expanded="true" />
-            <element signature="e#949#966#0" expanded="true" />
-            <element signature="e#4376#4384#0" expanded="true" />
-            <element signature="e#5593#5601#0" expanded="true" />
+            <element signature="e#1141#1152#0" expanded="true" />
+            <element signature="e#1210#1227#0" expanded="true" />
+            <element signature="e#1376#1384#0" expanded="true" />
+            <element signature="e#5401#5409#0" expanded="true" />
+            <element signature="e#6656#6664#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -951,13 +955,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1320#3284#0" expanded="true" />
-            <element signature="e#1876#1884#0" expanded="true" />
-            <element signature="e#2834#3191#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3643#4072#0" expanded="true" />
-            <element signature="e#4061#4062#0" expanded="true" />
+            <element signature="e#1385#3349#0" expanded="true" />
+            <element signature="e#1941#1949#0" expanded="true" />
+            <element signature="e#2899#3256#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3338#3339#0" expanded="true" />
+            <element signature="e#3708#4137#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1029,48 +1033,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/DefaultHashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="16" selection-start="331" selection-end="354" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../Tools &amp; SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview.jar!/com/estimote/sdk/BeaconManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="0" selection-start="4480" selection-end="4480" vertical-scroll-proportion="0.8729373" vertical-offset="1018" max-vertical-offset="1649">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="0" selection-start="3259" selection-end="3259" vertical-scroll-proportion="0.0" vertical-offset="874" max-vertical-offset="2006">
+          <folding>
+            <element signature="e#1385#3349#0" expanded="true" />
+            <element signature="e#1941#1949#0" expanded="true" />
+            <element signature="e#2899#3256#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3338#3339#0" expanded="true" />
+            <element signature="e#3708#4137#0" expanded="true" />
+            <element signature="e#4126#4127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/android/sdk/sources/android-19/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="793" column="0" selection-start="27389" selection-end="27389" vertical-scroll-proportion="0.8416149" vertical-offset="12191" max-vertical-offset="12835">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="81" column="26" selection-start="3084" selection-end="3084" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2839">
+        <state line="147" column="41" selection-start="5913" selection-end="5913" vertical-scroll-proportion="0.0" vertical-offset="2074" max-vertical-offset="3213">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#807#815#0" expanded="true" />
-            <element signature="e#880#891#0" expanded="true" />
-            <element signature="e#949#966#0" expanded="true" />
-            <element signature="e#4376#4384#0" expanded="true" />
-            <element signature="e#5593#5601#0" expanded="true" />
+            <element signature="e#1141#1152#0" expanded="true" />
+            <element signature="e#1210#1227#0" expanded="true" />
+            <element signature="e#1376#1384#0" expanded="true" />
+            <element signature="e#5401#5409#0" expanded="true" />
+            <element signature="e#6656#6664#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="55" selection-start="523" selection-end="523" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+        <state line="18" column="45" selection-start="554" selection-end="554" vertical-scroll-proportion="0.45341614" vertical-offset="14" max-vertical-offset="1173">
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#484#505#0" expanded="true" />
+            <element signature="e#1178#1559#0" expanded="true" />
+            <element signature="e#1548#1549#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="87" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="2006">
-          <folding>
-            <element signature="e#1320#3284#0" expanded="true" />
-            <element signature="e#1876#1884#0" expanded="true" />
-            <element signature="e#2834#3191#0" expanded="true" />
-            <element signature="e#3172#3173#0" expanded="true" />
-            <element signature="e#3273#3274#0" expanded="true" />
-            <element signature="e#3643#4072#0" expanded="true" />
-            <element signature="e#4061#4062#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconMinorMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="392" selection-end="392" vertical-scroll-proportion="0.31378937" vertical-offset="0" max-vertical-offset="921">
-          <folding />
         </state>
       </provider>
     </entry>

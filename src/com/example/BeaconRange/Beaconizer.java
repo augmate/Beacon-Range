@@ -20,10 +20,10 @@ package com.example.BeaconRange;
     final String TAG = "BEACONIZER";
     private BeaconManager beaconManager;
     boolean isRunning = false;
-    public static final HashMap<Integer, BeaconAttrib> minorToBeaconAttrib;
+    public static final DefaultHashMap<Integer, BeaconAttrib> minorToBeaconAttrib;
     static
     {
-        minorToBeaconAttrib = new HashMap<Integer, BeaconAttrib>();
+        minorToBeaconAttrib = new DefaultHashMap<Integer, BeaconAttrib>(new BeaconAttrib("unknown", R.drawable.grey_beacon));
         minorToBeaconAttrib.put(2233, new BeaconAttrib("purple", R.drawable.purple_beacon));
         minorToBeaconAttrib.put(9, new BeaconAttrib("blue", R.drawable.blue_beacon));
         minorToBeaconAttrib.put(7, new BeaconAttrib("green", R.drawable.green_beacon));

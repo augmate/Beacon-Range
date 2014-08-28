@@ -12,32 +12,45 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.estimote.sdk.Beacon;
+import com.example.BeaconRange.BeaconParseManager;
 import com.example.BeaconRange.Beaconizer;
 import com.example.BeaconRange.IReceiveBeaconsCallbacks;
 import com.example.BeaconRange.R;
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseUser;
 
 import java.util.*;
 
 public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCallbacks {
     Beaconizer newBeaconManager;
+    BeaconParseManager newParseManager;
     final String TAG = "BEACON";
+    final String YOUR_APPLICATION_ID = "JdeDnORM2uskVmy91dcJZiWnY8ITPZcBrg2RRNht";
+    final String YOUR_CLIENT_KEY = "f8VQFqtfDIh8rvMzMaclTsDoiH6cg9Rf5Tbz2jcZ";
     final double beaconCutoffDist = 3;
     private int beaconThreshold = 6;
     private int thresholdCount = 0;
-    private List<Beacon> currentBeaconArray = new ArrayList<Beacon>();
     private ArrayList<ImageView> beaconImages = new ArrayList<ImageView>();
     private HashMap<Beacon, Integer> map = new HashMap<Beacon, Integer>();
-
     private ImageView rightImage, centerImage, leftImage;
     private TextView status;
+    private ArrayList<Beacon> validBeacons = new ArrayList<Beacon>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
+        ParseUser.enableAutomaticUser();
+        ParseACL defaultACL = new ParseACL();
+        // Optionally enable public read access.
+        // defaultACL.setPublicReadAccess(true);
+        //ParseACL.setDefaultACL(defaultACL, true);
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.check_between_layout);
-        Collections.addAll(beaconImages, (ImageView)findViewById(R.id.rightImageView),
+        Collections.addAll(beaconImages, (ImageView) findViewById(R.id.rightImageView),
                 (ImageView) findViewById(R.id.centerImageView),
                 (ImageView) findViewById(R.id.leftImageView));
         rightImage = beaconImages.get(0);
@@ -45,6 +58,7 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         leftImage = beaconImages.get(2);
         status = (TextView) findViewById(R.id.status);
         newBeaconManager = new Beaconizer(this, this, beaconCutoffDist);
+        newParseManager = new BeaconParseManager(newBeaconManager.minorToBeaconAttrib);
         Log.d(TAG,"BeaconManager configured.");
     }
 
@@ -67,11 +81,18 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
                 map.put(b,value+1);
         }
         thresholdCount++;
-        ((TextView) findViewById(R.id.debug)).setText(map.size()+"");
+        ((TextView) findViewById(R.id.debug)).setText(thresholdCount+"");
         
         if (thresholdCount == beaconThreshold) {
             for(ImageView i:beaconImages) i.setVisibility(View.INVISIBLE);
-            ArrayList<Beacon> validBeacons = getValidBeacons(map, beaconThreshold);
+
+            ArrayList<Beacon> newValidBeacons = getNearBeacons(map, beaconThreshold);
+            validBeacons.removeAll(newValidBeacons);
+            ((TextView) findViewById(R.id.debug)).setText(validBeacons.toString());
+            newParseManager.put(validBeacons, false);
+            newParseManager.put(newValidBeacons, true);
+            validBeacons = newValidBeacons;
+
             switch(validBeacons.size()) {
                 case 0:
                     status.setText("No beacons detected. Searching...");
@@ -105,7 +126,7 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         return newBeaconManager.minorToBeaconAttrib.get(beacon.getMinor()).getColor();
     }
 
-    private ArrayList<Beacon> getValidBeacons(HashMap<Beacon, Integer> map, int beaconThreshold) {
+    private ArrayList<Beacon> getNearBeacons(HashMap<Beacon, Integer> map, int beaconThreshold) {
         ArrayList<Beacon> validBeacons = new ArrayList<Beacon>();
         for(Beacon b:map.keySet())
             if(map.get(b)>beaconThreshold/2)
@@ -118,6 +139,7 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
     protected void onDestroy() {
         super.onDestroy();
         newBeaconManager.destroy();
+        newParseManager.deleteData();
     }
 
     @Override

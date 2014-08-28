@@ -5,7 +5,7 @@ import java.util.HashMap;
 /**
  * Created by Darien on 8/28/14.
  */
-public class BeaconMinorMap<K,V> extends HashMap<K,V> {
+public class DefaultHashMap<K,V> extends HashMap<K,V> {
     protected V defaultValue;
     public DefaultHashMap(V defaultValue) {
         this.defaultValue = defaultValue;
