@@ -4,7 +4,7 @@ package com.example.BeaconRange;
     * Created by darien on 8/18/14.
             */
 
-            import android.content.Context;
+    import android.content.Context;
     import android.os.RemoteException;
     import android.util.Log;
     import com.estimote.sdk.Beacon;
@@ -20,7 +20,7 @@ package com.example.BeaconRange;
     final String TAG = "BEACONIZER";
     private BeaconManager beaconManager;
     boolean isRunning = false;
-    public static final DefaultHashMap<Integer, BeaconAttrib> minorToBeaconAttrib;
+    private static final DefaultHashMap<Integer, BeaconAttrib> minorToBeaconAttrib;
     static
     {
         minorToBeaconAttrib = new DefaultHashMap<Integer, BeaconAttrib>(new BeaconAttrib("unknown", R.drawable.grey_beacon));
@@ -114,7 +114,11 @@ package com.example.BeaconRange;
         }
     }
 
+    public String getBeaconColor(Beacon b){
+        return minorToBeaconAttrib.get(b.getMinor()).getColor();
+    }
 
-
-
+    public int getBeaconImage(Beacon b){
+        return minorToBeaconAttrib.get(b.getMinor()).getImageID();
+    }
 }

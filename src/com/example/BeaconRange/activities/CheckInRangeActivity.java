@@ -16,9 +16,6 @@ import com.example.BeaconRange.BeaconParseManager;
 import com.example.BeaconRange.Beaconizer;
 import com.example.BeaconRange.IReceiveBeaconsCallbacks;
 import com.example.BeaconRange.R;
-import com.parse.Parse;
-import com.parse.ParseACL;
-import com.parse.ParseUser;
 
 import java.util.*;
 
@@ -26,10 +23,8 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
     Beaconizer newBeaconManager;
     BeaconParseManager newParseManager;
     final String TAG = "BEACON";
-    final String YOUR_APPLICATION_ID = "JdeDnORM2uskVmy91dcJZiWnY8ITPZcBrg2RRNht";
-    final String YOUR_CLIENT_KEY = "f8VQFqtfDIh8rvMzMaclTsDoiH6cg9Rf5Tbz2jcZ";
     final double beaconCutoffDist = 3;
-    private int beaconThreshold = 6;
+    private int beaconThreshold = 1;
     private int thresholdCount = 0;
     private ArrayList<ImageView> beaconImages = new ArrayList<ImageView>();
     private HashMap<Beacon, Integer> map = new HashMap<Beacon, Integer>();
@@ -41,13 +36,6 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Parse.initialize(this, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
-        ParseUser.enableAutomaticUser();
-        ParseACL defaultACL = new ParseACL();
-        // Optionally enable public read access.
-        // defaultACL.setPublicReadAccess(true);
-        //ParseACL.setDefaultACL(defaultACL, true);
-
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.check_between_layout);
         Collections.addAll(beaconImages, (ImageView) findViewById(R.id.rightImageView),
@@ -58,8 +46,7 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         leftImage = beaconImages.get(2);
         status = (TextView) findViewById(R.id.status);
         newBeaconManager = new Beaconizer(this, this, beaconCutoffDist);
-        newParseManager = new BeaconParseManager(newBeaconManager.minorToBeaconAttrib);
-        Log.d(TAG,"BeaconManager configured.");
+        newParseManager = new BeaconParseManager(this, newBeaconManager);
     }
 
     public void onReceiveNearbyBeacons(List<Beacon> Beacons) {
@@ -85,46 +72,49 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         
         if (thresholdCount == beaconThreshold) {
             for(ImageView i:beaconImages) i.setVisibility(View.INVISIBLE);
-
             ArrayList<Beacon> newValidBeacons = getNearBeacons(map, beaconThreshold);
             validBeacons.removeAll(newValidBeacons);
             ((TextView) findViewById(R.id.debug)).setText(validBeacons.toString());
             newParseManager.put(validBeacons, false);
             newParseManager.put(newValidBeacons, true);
             validBeacons = newValidBeacons;
-
-            switch(validBeacons.size()) {
-                case 0:
-                    status.setText("No beacons detected. Searching...");
-                    break;
-                case 1:
-                    toggleBeaconIcon(validBeacons.get(0), centerImage);
-                    status.setText(getColor(validBeacons.get(0))+" beacon detected");
-                    break;
-                case 2:
-                    toggleBeaconIcon(validBeacons.get(0), leftImage);
-                    toggleBeaconIcon(validBeacons.get(1), rightImage);
-                    status.setText("You're near a " + getColor(validBeacons.get(0)) + " beacon and a " +
-                            getColor(validBeacons.get(1)) + " beacon");
-                    break;
-                case 3:
-                    toggleBeaconIcon(validBeacons.get(0), leftImage);
-                    toggleBeaconIcon(validBeacons.get(1), rightImage);
-                    toggleBeaconIcon(validBeacons.get(2), centerImage);
-                    status.setText("You're near a " + getColor(validBeacons.get(0)) + " beacon, a " +
-                            getColor(validBeacons.get(1)) + " beacon, and a " + getColor(validBeacons.get(2)) + " beacon");
-                    break;
-                default:
-                    break;
-            }
+            displayBeacons(validBeacons);
             map.clear();
             thresholdCount = 0;
         }
     }
 
-    private String getColor(Beacon beacon) {
-        return newBeaconManager.minorToBeaconAttrib.get(beacon.getMinor()).getColor();
+    private void displayBeacons(ArrayList<Beacon> validBeacons) {
+        switch(validBeacons.size()) {
+            case 0:
+                status.setText("No beacons detected. Searching...");
+                break;
+            case 1:
+                toggleBeaconIcon(validBeacons.get(0), centerImage);
+                status.setText(newBeaconManager.getBeaconColor(validBeacons.get(0))+" beacon detected");
+                break;
+            case 2:
+                toggleBeaconIcon(validBeacons.get(0), leftImage);
+                toggleBeaconIcon(validBeacons.get(1), rightImage);
+                status.setText("You're near a " + newBeaconManager.getBeaconColor(validBeacons.get(0)) + " beacon and a " +
+                        newBeaconManager.getBeaconColor(validBeacons.get(1)) + " beacon");
+                break;
+            case 3:
+                toggleBeaconIcon(validBeacons.get(0), leftImage);
+                toggleBeaconIcon(validBeacons.get(1), rightImage);
+                toggleBeaconIcon(validBeacons.get(2), centerImage);
+                status.setText("You're near a " + newBeaconManager.getBeaconColor(validBeacons.get(0)) + " beacon, a " +
+                        newBeaconManager.getBeaconColor(validBeacons.get(1)) + " beacon, and a " + newBeaconManager.getBeaconColor(validBeacons.get(2)) + " beacon");
+                break;
+            default:
+                toggleBeaconIcon(validBeacons.get(0), leftImage);
+                toggleBeaconIcon(validBeacons.get(1), rightImage);
+                toggleBeaconIcon(validBeacons.get(2), centerImage);
+                status.setText("More than 3 beacons in the area");
+                break;
+        }
     }
+
 
     private ArrayList<Beacon> getNearBeacons(HashMap<Beacon, Integer> map, int beaconThreshold) {
         ArrayList<Beacon> validBeacons = new ArrayList<Beacon>();
@@ -177,7 +167,7 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
     private void toggleBeaconIcon(Beacon b, ImageView imageView){
         imageView.setVisibility(View.VISIBLE);
         //TODO Refactoring Code
-        imageView.setImageResource(newBeaconManager.minorToBeaconAttrib.get(b.getMinor()).getImageID());
+        imageView.setImageResource(newBeaconManager.getBeaconImage(b));
     }
 
 }

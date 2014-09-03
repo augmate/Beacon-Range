@@ -21,7 +21,6 @@ public class MainActivity extends Activity {
 
     private void launchBeaconRangeActivity(String userName) {
         Intent i = new Intent(this, CheckInRangeActivity.class);
-        //i.putExtra(RoomSelectionActivity.COMPANY_NAME_EXTRA, userName);
         startActivity(i);
     }
 }
