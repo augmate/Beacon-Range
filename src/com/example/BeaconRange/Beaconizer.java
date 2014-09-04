@@ -25,9 +25,14 @@ package com.example.BeaconRange;
     static
     {
         minorToBeaconAttrib = new DefaultHashMap<Integer, BeaconAttrib>(new BeaconAttrib("unknown", R.drawable.grey_beacon));
-        minorToBeaconAttrib.put(2233, new BeaconAttrib("purple", R.drawable.purple_beacon));
-        minorToBeaconAttrib.put(9, new BeaconAttrib("blue", R.drawable.blue_beacon));
-        minorToBeaconAttrib.put(7, new BeaconAttrib("green", R.drawable.green_beacon));
+        minorToBeaconAttrib.put(1, new BeaconAttrib("green", R.drawable.green_beacon));
+        minorToBeaconAttrib.put(2, new BeaconAttrib("blue", R.drawable.blue_beacon));
+        minorToBeaconAttrib.put(3, new BeaconAttrib("purple", R.drawable.purple_beacon));
+        minorToBeaconAttrib.put(4, new BeaconAttrib("green", R.drawable.green_beacon));
+        minorToBeaconAttrib.put(5, new BeaconAttrib("purple", R.drawable.blue_beacon));
+        minorToBeaconAttrib.put(6, new BeaconAttrib("blue", R.drawable.purple_beacon));
+
+
     }
 
 

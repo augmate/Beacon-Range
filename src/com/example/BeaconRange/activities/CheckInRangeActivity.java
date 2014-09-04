@@ -31,6 +31,10 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
     private ImageView rightImage, centerImage, leftImage;
     private TextView status;
     private ArrayList<Beacon> validBeacons = new ArrayList<Beacon>();
+    private ArrayList<Beacon> consistentBeacons = new ArrayList<Beacon>();
+    private ArrayList<Beacon> discoveredBeacons = new ArrayList<Beacon>();
+    private ArrayList<Beacon> removedBeacons = new ArrayList<Beacon>();
+
 
 
     @Override
@@ -72,16 +76,32 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         
         if (thresholdCount == beaconThreshold) {
             for(ImageView i:beaconImages) i.setVisibility(View.INVISIBLE);
-            ArrayList<Beacon> newValidBeacons = getNearBeacons(map, beaconThreshold);
-            validBeacons.removeAll(newValidBeacons);
-            ((TextView) findViewById(R.id.debug)).setText(validBeacons.toString());
-            newParseManager.put(validBeacons, false);
-            newParseManager.put(newValidBeacons, true);
-            validBeacons = newValidBeacons;
+            ArrayList<Beacon> newValidBeacons = getNearBeacons(map, beaconThreshold); //All Beacons obtained from the current bluetooth scan
+            categorizeBeacons(newValidBeacons);
+            ((TextView) findViewById(R.id.debug)).setText("Removed: " + removedBeacons.size() + "\n"
+                    + "Discovered: " + discoveredBeacons.size() + "\n"
+                    + "Consistent: " + consistentBeacons.size() + "\n"
+                    + "Valid: " + validBeacons.size());
+            newParseManager.put(removedBeacons, discoveredBeacons, consistentBeacons, validBeacons);
             displayBeacons(validBeacons);
             map.clear();
             thresholdCount = 0;
         }
+    }
+
+    private void categorizeBeacons(ArrayList<Beacon> newValidBeacons) {
+        consistentBeacons.clear();
+        discoveredBeacons.clear();
+        removedBeacons.clear();
+        for(Beacon b : newValidBeacons){ //loop over all the Beacons from the previous scan
+            if (validBeacons.contains(b))
+                consistentBeacons.add(b); //If a beacon from the current scan is also in the previous scan, add it to consistent beacons
+            else
+                discoveredBeacons.add(b); //Else if a beacon from the current scan is NOT in the previous scan, add it to discovered beacons
+        }
+        validBeacons.removeAll(newValidBeacons); //remove all Beacons in the current scan from the previous to obtain all beacons not found in the current scan.
+        removedBeacons = validBeacons; //add these expired beacons to the removedBeacons
+        validBeacons = newValidBeacons; //ValidBeacons is a combination of consistent and discovered beacons (ie. newValidBeacons)
     }
 
     private void displayBeacons(ArrayList<Beacon> validBeacons) {
