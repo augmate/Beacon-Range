@@ -3,7 +3,6 @@ package com.example.BeaconRange;
 import android.app.Activity;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
-import com.example.BeaconRange.activities.CheckInRangeActivity;
 import com.parse.*;
 
 import java.util.ArrayList;
@@ -16,7 +15,8 @@ import java.util.List;
 public class BeaconParseManager {
     private Beaconizer beaconizer;
     private HashMap<Beacon, ParseObject> beaconToParseObj = new HashMap<Beacon, ParseObject>();
-    private String QUERY_NAME = "Beacon";
+    final private String QUERY_NAME = "Beacon";
+    final private String BEACONS_LABEL = "updatedBeacons"
     final String YOUR_APPLICATION_ID = "JdeDnORM2uskVmy91dcJZiWnY8ITPZcBrg2RRNht";
     final String YOUR_CLIENT_KEY = "f8VQFqtfDIh8rvMzMaclTsDoiH6cg9Rf5Tbz2jcZ";
 
@@ -30,26 +30,90 @@ public class BeaconParseManager {
         //ParseACL defaultACL = new ParseACL();
         //defaultACL.setPublicReadAccess(true);
         //ParseACL.setDefaultACL(defaultACL, true);
+        syncToNetwork();
 
     }
+
+
+
     public void put(ArrayList<Beacon> beacons, final boolean state){
+        //find all the macAddresses of all beacon currently known of by this user. These adddress would be the local parse database
+        final ArrayList<String> macAddresses = getMacAddresses(beacons);
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(QUERY_NAME);
+        query.fromLocalDatastore();
+        query.whereContainedIn("macAddress", macAddresses);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> parseBeacons, ParseException e) {
+                ArrayList<String> macAddressesCopy = macAddresses;
+                if (e == null) {
+                    for (ParseObject b : parseBeacons)
+                        macAddressesCopy.remove(b.getString("macAddress"));
+                } else {
+                    // There was an error.
+                }
+                //If there are any macaddress that were not found in the local database,the associated beacons must be added to the network database
+                if(!macAddressesCopy.isEmpty()){
+                    for(String mac : macAddresses)
+                        parsePut(true, beaconizer.getBeaconFromMacAddress(mac));
+                    syncToNetwork();
+                }
+            }
+        });
+
         for(final Beacon b : beacons){ //Perform parse update if this beacon has been seen before. Else add this beacon to the parse database
             if(beaconToParseObj.containsKey(b)){
-                ParseQuery<ParseObject> query = ParseQuery.getQuery(QUERY_NAME);
-                query.getInBackground(beaconToParseObj.get(b).getObjectId(), new GetCallback<ParseObject>() {
-                    public void done(ParseObject parseBeacon, ParseException e) {
-                        if (e == null) {
-                            setParseParams(b, state, parseBeacon);
+                parseUpdate(state, b);
+            }
+            else{
+                parsePut(state, b);
+            }
+        }
+    }
+
+    private void parsePut(boolean state, Beacon b) {
+        ParseObject parseBeacon = new ParseObject(QUERY_NAME);
+        setParseParams(b, state, parseBeacon);
+        beaconToParseObj.put(b, parseBeacon);
+    }
+
+    private void parseUpdate(final boolean state, final Beacon b) {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(QUERY_NAME);
+        query.getInBackground(beaconToParseObj.get(b).getObjectId(), new GetCallback<ParseObject>() {
+            public void done(ParseObject parseBeacon, ParseException e) {
+                if (e == null) {
+                    setParseParams(b, state, parseBeacon);
+                }
+            }
+        });
+    }
+
+    private void syncToNetwork() {
+        ParseQuery<ParseObject> query = ParseQuery.getQuery(QUERY_NAME);
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(final List<ParseObject> parseBeacons, ParseException e) {
+                if (e == null) {
+                    return;
+                }
+                // Release any objects previously pinned for this query.
+                ParseObject.unpinAllInBackground(BEACONS_LABEL, parseBeacons, new DeleteCallback() {
+                    public void done(ParseException e) {
+                        if (e != null) {
+                            // There was some error.
+                            return;
                         }
+                        // Add the latest results for this query to the cache.
+                        ParseObject.pinAllInBackground(BEACONS_LABEL, parseBeacons);
                     }
                 });
             }
-            else{
-                ParseObject parseBeacon = new ParseObject(QUERY_NAME);
-                setParseParams(b, state, parseBeacon);
-                beaconToParseObj.put(b, parseBeacon);
-            }
-        }
+        });
+    }
+
+    private ArrayList<String> getMacAddresses(ArrayList<Beacon> beacons) {
+        ArrayList<String> macAddresses = new ArrayList<String>();
+        for(Beacon b:beacons)
+            macAddresses.add(b.getMacAddress());
+        return macAddresses;
     }
 
     private void setParseParams(Beacon b, boolean state, ParseObject parseBeacon) {
@@ -63,11 +127,8 @@ public class BeaconParseManager {
         parseBeacon.put("proximity", Utils.computeProximity(b).toString());
         //parseBeacon.put("measuredPower",b.getMeasuredPower());
         parseBeacon.put("UUID",b.getProximityUUID());
-        if(ParseUser.getCurrentUser()!=null)
-            parseBeacon.put("user", ParseUser.getCurrentUser());
-        else
-            parseBeacon.put("user", "x");
-        parseBeacon.saveInBackground();
+        parseBeacon.put("user", ParseUser.getCurrentUser());
+        parseBeacon.pinInBackground();
     }
 
     public void deleteData(){

@@ -20,6 +20,7 @@ package com.example.BeaconRange;
     final String TAG = "BEACONIZER";
     private BeaconManager beaconManager;
     boolean isRunning = false;
+    private HashMap<String, Beacon> macToBeacon= new HashMap<String, Beacon>();
     private static final DefaultHashMap<Integer, BeaconAttrib> minorToBeaconAttrib;
     static
     {
@@ -28,6 +29,7 @@ package com.example.BeaconRange;
         minorToBeaconAttrib.put(9, new BeaconAttrib("blue", R.drawable.blue_beacon));
         minorToBeaconAttrib.put(7, new BeaconAttrib("green", R.drawable.green_beacon));
     }
+
 
     public Beaconizer(Context context, final IReceiveBeaconsCallbacks receiver, final double beaconCutoffDist) {
         Log.d(TAG,"Beacon Service is ready. Starting ranging scan.");
@@ -54,9 +56,11 @@ package com.example.BeaconRange;
                     int rssi = beacon.getRssi(); //Received Signal Strength Indication
                     Utils.Proximity proximity = Utils.computeProximity(beacon);
 
-                    if(distance < beaconCutoffDist && rssi >-90) {
+
+                    if(distance < beaconCutoffDist) {
                     //if(processedBeacon.proximity != Utils.Proximity.FAR){
                         processedBeacons.add(beacon);
+                        macToBeacon.put(beacon.getMacAddress(), beacon);
                     }
 
                     Log.d(TAG, "  Beacon " + color + " accuracy=" + String.format("%.2f", distance) + " power=" + beacon.getMeasuredPower() +
@@ -120,5 +124,9 @@ package com.example.BeaconRange;
 
     public int getBeaconImage(Beacon b){
         return minorToBeaconAttrib.get(b.getMinor()).getImageID();
+    }
+
+    public Beacon getBeaconFromMacAddress(String mac){
+        return macToBeacon.get(mac);
     }
 }
