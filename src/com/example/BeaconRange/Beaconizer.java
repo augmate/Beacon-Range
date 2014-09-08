@@ -29,10 +29,8 @@ package com.example.BeaconRange;
         minorToBeaconAttrib.put(2, new BeaconAttrib("blue", R.drawable.blue_beacon));
         minorToBeaconAttrib.put(3, new BeaconAttrib("purple", R.drawable.purple_beacon));
         minorToBeaconAttrib.put(4, new BeaconAttrib("green", R.drawable.green_beacon));
-        minorToBeaconAttrib.put(5, new BeaconAttrib("purple", R.drawable.blue_beacon));
-        minorToBeaconAttrib.put(6, new BeaconAttrib("blue", R.drawable.purple_beacon));
-
-
+        minorToBeaconAttrib.put(5, new BeaconAttrib("purple", R.drawable.purple_beacon));
+        minorToBeaconAttrib.put(6, new BeaconAttrib("blue", R.drawable.blue_beacon));
     }
 
 
