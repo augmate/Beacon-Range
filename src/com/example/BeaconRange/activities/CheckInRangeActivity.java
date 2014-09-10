@@ -22,7 +22,6 @@ import java.util.*;
 public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCallbacks {
     Beaconizer newBeaconManager;
     BeaconParseManager newParseManager;
-    final String TAG = "BEACON";
     final double beaconCutoffDist = 3;
     private int beaconThreshold = 1;
     private int thresholdCount = 0;
@@ -65,7 +64,6 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
         }*/
         for(Beacon b:Beacons){
             Integer value = map.get(b);
-            Log.d(TAG,value+"");
             if(value==null)
                 map.put(b,1);
             else

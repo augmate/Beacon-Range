@@ -19,31 +19,61 @@ public class BeaconParseManager {
     private ParseUser User;
     private HashMap<Beacon, ParseObject> beaconToParseObj = new HashMap<Beacon, ParseObject>();
     final private String BEACON_QUERY = "Beacon";
+    final private String PARSE_INFO = "ParseBeacon";
     final String YOUR_APPLICATION_ID = "kSOqeIVQCitrSI2OEbUnpXVmbVxzmuPK610CzCZA";
     final String YOUR_CLIENT_KEY = "3Ekrf6Ak793ShNkeyAPFdI3UnQnNpExzjmZFzJUZ";
 
     public BeaconParseManager(Activity main, Beaconizer beaconizer) {
         this.beaconizer = beaconizer;
         Parse.initialize(main, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
-        ParseUser.enableAutomaticUser();
-        User = ParseUser.getCurrentUser();
-        User.increment("RunCount");
-        User.setUsername(android.os.Build.MODEL);
-        User.setPassword("augmate");
-        saveParseObject(User);
-        //User.put("userBeaconArray", Arrays.asList());
-        //User.saveInBackground();
-        //ParseACL defaultACL = new ParseACL();
-        //defaultACL.setPublicReadAccess(true);
-        //ParseACL.setDefaultACL(defaultACL, true);
+        User = new ParseUser();
+        String username = android.os.Build.MODEL + android.os.Build.ID;
+        String password = "augmate";
+        ParseSignUp(username, password);
+    }
+
+    private void ParseSignUp(final String username, final String password) {
+        User.setUsername(username);
+        User.setPassword(password);
+        Log.d(PARSE_INFO, "ATTEMPTING SIGN UP");
+        User.signUpInBackground(new SignUpCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    Log.d(PARSE_INFO, "SIGNED UP!");
+                    User.increment("RunCount");
+                } else {
+                    Log.d(PARSE_INFO, "SIGN UP FAILED, ATTEMPTING LOGIN");
+                    ParseLogin(username, password);
+                }
+            }
+        });
+    }
+
+    private void ParseLogin(final String username, final String password) {
+        Log.d(PARSE_INFO, "LOGGING IN");
+
+
+        User.logInInBackground(username, password, new LogInCallback() {
+            public void done(ParseUser user, ParseException e) {
+                if (user != null) {
+                    Log.d(PARSE_INFO, "LOGGED IN!");
+                    User = user;
+                    User.increment("RunCount");
+                    //saveParseObject(User);
+                } else {
+
+                }
+            }
+        });
     }
 
 
-
     public void put(ArrayList<Beacon> removedBeacons, ArrayList<Beacon> discoveredBeacons, ArrayList<Beacon> consistentBeacons, ArrayList<Beacon> validBeacons){
-        if(!discoveredBeacons.isEmpty())
-            BeaconUpdate(discoveredBeacons);
-        UserUpdate(validBeacons);
+        if(User.isAuthenticated()){
+            if(!discoveredBeacons.isEmpty())
+                BeaconUpdate(discoveredBeacons);
+            UserUpdate(validBeacons);
+        }
     }
 
     private void UserUpdate(ArrayList<Beacon> validBeacons) {
@@ -139,14 +169,14 @@ public class BeaconParseManager {
 
     }
 
-    private void saveParseObject(ParseObject parseObj) {
+    private void saveParseObject(final ParseObject parseObj) {
         parseObj.saveInBackground(new SaveCallback() {
             public void done(ParseException e) {
                 if (e == null) {
-                    //myObjectSavedSuccessfully();
+                    Log.d(PARSE_INFO, "Saved "+ parseObj.getObjectId());
                 } else {
+                    Log.d(PARSE_INFO, "Failed to Save "+ parseObj.getObjectId());
                     e.printStackTrace();
-                    //myObjectSaveDidNotSucceed();
                 }
             }
         });
