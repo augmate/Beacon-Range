@@ -6,7 +6,6 @@ package com.example.BeaconRange.activities;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -147,13 +146,11 @@ public class CheckInRangeActivity extends Activity implements IReceiveBeaconsCal
     protected void onDestroy() {
         super.onDestroy();
         newBeaconManager.destroy();
-        newParseManager.deleteData();
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        newBeaconManager.startScanning();
     }
 
     @Override

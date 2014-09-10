@@ -2,12 +2,16 @@ package com.example.BeaconRange;
 
 import android.app.Activity;
 import android.util.Log;
+
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 import com.parse.*;
-
+import android.provider.Settings.Secure;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,8 +31,9 @@ public class BeaconParseManager {
         this.beaconizer = beaconizer;
         Parse.initialize(main, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
         User = new ParseUser();
-        String username = android.os.Build.MODEL + android.os.Build.ID;
+        String username = Secure.getString(main.getContentResolver(),Secure.ANDROID_ID);
         String password = "augmate";
+        ((TextView) main.findViewById(R.id.debug)).setText("ATTEMPTING SIGN UP/SIGN IN");
         ParseSignUp(username, password);
     }
 
@@ -41,6 +46,7 @@ public class BeaconParseManager {
                 if (e == null) {
                     Log.d(PARSE_INFO, "SIGNED UP!");
                     User.increment("RunCount");
+                    beaconizer.startScanning();
                 } else {
                     Log.d(PARSE_INFO, "SIGN UP FAILED, ATTEMPTING LOGIN");
                     ParseLogin(username, password);
@@ -51,17 +57,15 @@ public class BeaconParseManager {
 
     private void ParseLogin(final String username, final String password) {
         Log.d(PARSE_INFO, "LOGGING IN");
-
-
         User.logInInBackground(username, password, new LogInCallback() {
             public void done(ParseUser user, ParseException e) {
                 if (user != null) {
                     Log.d(PARSE_INFO, "LOGGED IN!");
                     User = user;
                     User.increment("RunCount");
-                    //saveParseObject(User);
+                    beaconizer.startScanning();
                 } else {
-
+                    Log.d(PARSE_INFO, "Error: " + e.getMessage());
                 }
             }
         });
@@ -85,7 +89,7 @@ public class BeaconParseManager {
                     User.put("userBeaconArray", parseBeacons);
                     saveParseObject(User);
                 } else {
-                    Log.d("score", "Error: " + e.getMessage());
+                    Log.d(PARSE_INFO, "Error: " + e.getMessage());
                 }
             }
         });
@@ -131,8 +135,8 @@ public class BeaconParseManager {
                     }
                     if(!parseMacs.contains(b.getMacAddress())){ //if that Beacon is not known by Parse, add a brand new beacon to Parse
                         ParseObject parseBeacon = new ParseObject(BEACON_QUERY);
-                        setParseParams(b, parseBeacon);
                         beaconToParseObj.put(b, parseBeacon);
+                        setParseParams(b, parseBeacon);
                     }
                 }
             }
@@ -141,9 +145,14 @@ public class BeaconParseManager {
 
     private ArrayList<String> getMacAddresses(List<ParseObject> parseBeacons) {
         ArrayList<String> macAddresses = new ArrayList<String>();
-        for(ParseObject b: parseBeacons)
-            macAddresses.add(b.getString("macAddress"));
-        return macAddresses;
+        try{ // for some reason this for loop causes a null pointer exception sometimes. Not sure how to fix.
+            for(ParseObject b: parseBeacons)
+                macAddresses.add(b.getString("macAddress"));
+            return macAddresses;
+        }
+        catch (NullPointerException e){
+            return null;
+        }
     }
 
 
@@ -164,7 +173,7 @@ public class BeaconParseManager {
         parseBeacon.put("proximity", Utils.computeProximity(b).toString());
         //parseBeacon.put("measuredPower",b.getMeasuredPower());
         parseBeacon.put("UUID",b.getProximityUUID());
-        parseBeacon.put("lastUpdatedBy", ParseUser.getCurrentUser());
+        parseBeacon.put("lastUpdatedBy", User);
         saveParseObject(parseBeacon);
 
     }
