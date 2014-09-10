@@ -21,7 +21,6 @@ public class BeaconParseManager {
     final private String BEACON_QUERY = "Beacon";
     final String YOUR_APPLICATION_ID = "kSOqeIVQCitrSI2OEbUnpXVmbVxzmuPK610CzCZA";
     final String YOUR_CLIENT_KEY = "3Ekrf6Ak793ShNkeyAPFdI3UnQnNpExzjmZFzJUZ";
-    final private String PARSE_INFO = "PARSE";
 
     public BeaconParseManager(Activity main, Beaconizer beaconizer) {
         this.beaconizer = beaconizer;
@@ -31,8 +30,9 @@ public class BeaconParseManager {
         User.increment("RunCount");
         User.setUsername(android.os.Build.MODEL);
         User.setPassword("augmate");
+        saveParseObject(User);
         //User.put("userBeaconArray", Arrays.asList());
-        User.saveInBackground();
+        //User.saveInBackground();
         //ParseACL defaultACL = new ParseACL();
         //defaultACL.setPublicReadAccess(true);
         //ParseACL.setDefaultACL(defaultACL, true);
@@ -53,13 +53,38 @@ public class BeaconParseManager {
             public void done(List<ParseObject> parseBeacons, ParseException e) {
                 if (e == null) {
                     User.put("userBeaconArray", parseBeacons);
-                    User.saveInBackground();
+                    saveParseObject(User);
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
                 }
             }
         });
     }
+    /* RELATION UPDATE. FREEZES APPLICATION
+    private void UserUpdate(final ArrayList<Beacon> validBeacons) {
+        final ParseRelation<ParseObject> relation = User.getRelation("myBeacons");
+        ParseQuery<ParseObject> query = relation.getQuery();
+        List<ParseObject> parseBeacons = new ArrayList<ParseObject>();
+        query.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> parseBeacons, ParseException e) {
+                if (e == null) {
+                    try {
+                        ParseRelation<ParseObject> relation = User.getRelation("myBeacons");
+                        for (ParseObject r : parseBeacons) relation.remove(r);
+                        User.saveInBackground();
+                        for (Beacon v : validBeacons) relation.add(beaconToParseObj.get(v));
+                        User.saveInBackground();
+                    } catch (NullPointerException x) {
+                        Log.d("PARSE", "Error: " + x.getMessage());
+                    }
+                } else {
+                    Log.d("PARSE", "Error: " + e.getMessage());
+                    User.saveInBackground();
+                }
+            }
+        });
+    }
+    */
 
     private void BeaconUpdate(final ArrayList<Beacon> discoveredBeacons) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery(BEACON_QUERY);
@@ -83,30 +108,6 @@ public class BeaconParseManager {
             }
         });
     }
-
-
-      /*
-        for(final Beacon b : discoveredBeacons){//Perform parse update if this beacon has been seen before. Else add this beacon to the parse database
-            if(beaconToParseObj.containsKey(b)){
-                ParseQuery<ParseObject> query = ParseQuery.getQuery(BEACON_QUERY);
-                query.getInBackground(beaconToParseObj.get(b).getObjectId(), new GetCallback<ParseObject>() {
-                    public void done(ParseObject parseBeacon, ParseException e) {
-                        if (e == null) {
-                            setParseParams(b, parseBeacon);
-                        }
-                        else{
-                            Log.d(PARSE_INFO, e.toString());
-                        }
-                    }
-                });
-            }
-            else{
-                ParseObject parseBeacon = new ParseObject(BEACON_QUERY);
-                setParseParams(b, parseBeacon);
-                beaconToParseObj.put(b, parseBeacon);
-            }
-        }
-    */
 
     private ArrayList<String> getMacAddresses(List<ParseObject> parseBeacons) {
         ArrayList<String> macAddresses = new ArrayList<String>();
@@ -134,7 +135,21 @@ public class BeaconParseManager {
         //parseBeacon.put("measuredPower",b.getMeasuredPower());
         parseBeacon.put("UUID",b.getProximityUUID());
         parseBeacon.put("lastUpdatedBy", ParseUser.getCurrentUser());
-        parseBeacon.saveInBackground();
+        saveParseObject(parseBeacon);
+
+    }
+
+    private void saveParseObject(ParseObject parseObj) {
+        parseObj.saveInBackground(new SaveCallback() {
+            public void done(ParseException e) {
+                if (e == null) {
+                    //myObjectSavedSuccessfully();
+                } else {
+                    e.printStackTrace();
+                    //myObjectSaveDidNotSucceed();
+                }
+            }
+        });
     }
 
     public void deleteData(){
@@ -143,10 +158,5 @@ public class BeaconParseManager {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        /*
-        for(ParseObject beacon : beaconToParseObj.values()){
-            beacon.deleteEventually();
-        }
-        */
     }
 }
