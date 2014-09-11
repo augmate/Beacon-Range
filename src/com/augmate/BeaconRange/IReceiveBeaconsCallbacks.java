@@ -1,4 +1,4 @@
-package com.example.BeaconRange;
+package com.augmate.BeaconRange;
 
 import com.estimote.sdk.Beacon;
 

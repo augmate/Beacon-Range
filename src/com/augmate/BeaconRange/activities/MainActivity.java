@@ -1,4 +1,4 @@
-package com.example.BeaconRange.activities;
+package com.augmate.BeaconRange.activities;
 
 /**
  * Created by darien on 8/18/14.
@@ -14,10 +14,10 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.estimote.sdk.Beacon;
-import com.example.BeaconRange.BeaconParseManager;
-import com.example.BeaconRange.Beaconizer;
-import com.example.BeaconRange.IReceiveBeaconsCallbacks;
-import com.example.BeaconRange.R;
+import com.augmate.BeaconRange.BeaconParseManager;
+import com.augmate.BeaconRange.Beaconizer;
+import com.augmate.BeaconRange.IReceiveBeaconsCallbacks;
+import com.augmate.BeaconRange.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

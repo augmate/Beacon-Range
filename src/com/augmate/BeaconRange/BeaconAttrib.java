@@ -1,4 +1,4 @@
-package com.example.BeaconRange;
+package com.augmate.BeaconRange;
 
 /**
  * Created by Darien on 8/27/14.

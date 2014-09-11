@@ -1,8 +1,7 @@
-package com.example.BeaconRange;
+package com.augmate.BeaconRange;
 
 import android.app.Activity;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.estimote.sdk.Beacon;

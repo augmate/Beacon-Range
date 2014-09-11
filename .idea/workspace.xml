@@ -104,32 +104,32 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="25" selection-start="671" selection-end="671" vertical-scroll-proportion="0.03469388" vertical-offset="119" max-vertical-offset="2414">
+            <state line="3" column="24" selection-start="73" selection-end="73" vertical-scroll-proportion="0.10408163" vertical-offset="0" max-vertical-offset="2414">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="BeaconParseManager.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java">
+        <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/BeaconParseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="31" selection-start="1275" selection-end="1275" vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="3145">
+            <state line="34" column="31" selection-start="1245" selection-end="1245" vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="3145">
               <folding>
                 <element signature="method#ParseSignUp#0;class#BeaconParseManager#0" expanded="false" />
                 <element signature="method#ParseLogin#0;class#BeaconParseManager#0" expanded="false" />
-                <element signature="e#3433#4188#0" expanded="true" />
-                <element signature="e#4177#4178#0" expanded="true" />
-                <element signature="e#9259#9848#0" expanded="true" />
-                <element signature="e#9837#9838#0" expanded="true" />
+                <element signature="e#3403#4158#0" expanded="true" />
+                <element signature="e#4147#4148#0" expanded="true" />
+                <element signature="e#9229#9818#0" expanded="true" />
+                <element signature="e#9807#9808#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Beaconizer.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+        <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="75" column="28" selection-start="3609" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="2210">
               <folding>
@@ -144,8 +144,10 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <folding />
+            <state line="2" column="30" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+              <folding>
+                <element signature="e#1338#1356#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -191,7 +193,6 @@
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconMinorMap.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/DefaultHashMap.java" />
         <option value="$PROJECT_DIR$/res/voice_trigger.tld" />
-        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/IReceiveBeaconsCallbacks.java" />
@@ -199,6 +200,8 @@
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java" />
+        <option value="$PROJECT_DIR$/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -290,28 +293,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="BeaconRange" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BeaconRange" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BeaconRange" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="BeaconRange" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="activities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -654,7 +635,7 @@
     <configuration default="false" name="BeaconRange" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="BeaconRange" />
       <option name="ACTIVITY_CLASS" value="com.example.BeaconRange.activities.MainActivity" />
-      <option name="MODE" value="specific_activity" />
+      <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
@@ -731,16 +712,16 @@
       <workItem from="1410280154274" duration="6159000" />
       <workItem from="1410363243802" duration="7031000" />
       <workItem from="1410374100994" duration="10735000" />
-      <workItem from="1410450325207" duration="13559000" />
+      <workItem from="1410450325207" duration="14328000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="148780000" />
+    <option name="totallyTimeSpent" value="149549000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -758,14 +739,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32073012" sideWeight="0.593125" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44198173" sideWeight="0.7675" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44198173" sideWeight="0.64125" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.150625" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32724902" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32724902" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -827,7 +808,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3196">
           <folding>
@@ -846,14 +827,14 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="867" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
@@ -872,7 +853,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
@@ -887,7 +868,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
@@ -901,11 +882,13 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
+          <folding>
+            <element signature="e#1338#1356#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
@@ -925,7 +908,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
@@ -936,7 +919,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/IReceiveBeaconsCallbacks.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/IReceiveBeaconsCallbacks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
@@ -944,11 +927,13 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
+          <folding>
+            <element signature="e#1338#1356#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
@@ -968,7 +953,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
@@ -979,7 +964,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/IReceiveBeaconsCallbacks.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/IReceiveBeaconsCallbacks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
@@ -987,11 +972,13 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
+          <folding>
+            <element signature="e#1338#1356#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding />
@@ -1011,7 +998,7 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
@@ -1022,7 +1009,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/IReceiveBeaconsCallbacks.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/IReceiveBeaconsCallbacks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
@@ -1030,7 +1017,9 @@
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
+          <folding>
+            <element signature="e#1338#1356#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1054,12 +1043,12 @@
         <state line="1882" column="16" selection-start="83921" selection-end="83921" vertical-scroll-proportion="53.40283" vertical-offset="0" max-vertical-offset="90780" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/DefaultHashMap.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/DefaultHashMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="16" selection-start="331" selection-end="354" vertical-scroll-proportion="0.4204947" vertical-offset="0" max-vertical-offset="566" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconAttrib.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/BeaconAttrib.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="25" selection-start="129" selection-end="129" vertical-scroll-proportion="0.24028268" vertical-offset="0" max-vertical-offset="566" />
       </provider>
@@ -1096,7 +1085,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/IReceiveBeaconsCallbacks.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/IReceiveBeaconsCallbacks.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="95" selection-end="95" vertical-scroll-proportion="0.1734694" vertical-offset="0" max-vertical-offset="490">
           <folding>
@@ -1129,7 +1118,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="28" selection-start="3609" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="2210">
           <folding>
@@ -1140,30 +1129,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/BeaconParseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="31" selection-start="1275" selection-end="1275" vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="3145">
+        <state line="34" column="31" selection-start="1245" selection-end="1245" vertical-scroll-proportion="-17.0" vertical-offset="0" max-vertical-offset="3145">
           <folding>
             <element signature="method#ParseSignUp#0;class#BeaconParseManager#0" expanded="false" />
             <element signature="method#ParseLogin#0;class#BeaconParseManager#0" expanded="false" />
-            <element signature="e#3433#4188#0" expanded="true" />
-            <element signature="e#4177#4178#0" expanded="true" />
-            <element signature="e#9259#9848#0" expanded="true" />
-            <element signature="e#9837#9838#0" expanded="true" />
+            <element signature="e#3403#4158#0" expanded="true" />
+            <element signature="e#4147#4148#0" expanded="true" />
+            <element signature="e#9229#9818#0" expanded="true" />
+            <element signature="e#9807#9808#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <folding />
+        <state line="2" column="30" selection-start="138" selection-end="138" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
+          <folding>
+            <element signature="e#1338#1356#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="25" selection-start="671" selection-end="671" vertical-scroll-proportion="0.03469388" vertical-offset="119" max-vertical-offset="2414">
+        <state line="3" column="24" selection-start="73" selection-end="73" vertical-scroll-proportion="0.10408163" vertical-offset="0" max-vertical-offset="2414">
           <folding />
         </state>
       </provider>
