@@ -2,31 +2,27 @@ package com.example.BeaconRange;
 
 import android.app.Activity;
 import android.util.Log;
-
-import android.view.View;
-import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.TextView;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 import com.parse.*;
 import android.provider.Settings.Secure;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**
  * Created by Darien on 8/28/14.
+ * Manager for handling Parse calls regarding newly discovered beacons
  */
 public class BeaconParseManager {
-    private Beaconizer beaconizer;
-    private ParseUser User;
-    private HashMap<Beacon, ParseObject> beaconToParseObj = new HashMap<Beacon, ParseObject>();
-    final private String BEACON_QUERY = "Beacon";
-    final private String PARSE_INFO = "ParseBeacon";
     final String YOUR_APPLICATION_ID = "kSOqeIVQCitrSI2OEbUnpXVmbVxzmuPK610CzCZA";
     final String YOUR_CLIENT_KEY = "3Ekrf6Ak793ShNkeyAPFdI3UnQnNpExzjmZFzJUZ";
+    final private String BEACON_QUERY = "Beacon";
+    final private String PARSE_INFO = "ParseBeacon";
     TextView viewById;
+    private Beaconizer beaconizer;
+    private ParseUser User;
+    //private HashMap<Beacon, ParseObject> beaconToParseObj = new HashMap<Beacon, ParseObject>();
 
 
     public BeaconParseManager(Activity main, Beaconizer beaconizer) {
@@ -133,16 +129,17 @@ public class BeaconParseManager {
                 ArrayList<String> parseMacs = getMacAddresses(parseBeacons);
                 for(Beacon b : discoveredBeacons){
                     for(ParseObject pB : parseBeacons){
-                        Log.d(PARSE_INFO,b.getMacAddress().equals(pB.getString("macAddress")) + ": "+b.getMacAddress()+"V.S."+pB.getString("macAddress"));
+                        //Log.d(PARSE_INFO,b.getMacAddress().equals(pB.getString("macAddress")) + ": "+b.getMacAddress()+"V.S."+pB.getString("macAddress"));
                         if(b.getMacAddress().equals(pB.getString("macAddress"))){ //within this loop, update any beacons that are already known by parse
-                            beaconToParseObj.put(b, pB);
+                            //beaconToParseObj.put(b, pB);
                             setParseParams(b, pB);
-                            //break;
+                            break;
                         }
                     }
                     if(!parseMacs.contains(b.getMacAddress())){ //if that Beacon is not known by Parse, add a brand new beacon to Parse
+                        Log.d(PARSE_INFO, "NEW DISCOVERY!");
                         ParseObject parseBeacon = new ParseObject(BEACON_QUERY);
-                        beaconToParseObj.put(b, parseBeacon);
+                        //beaconToParseObj.put(b, parseBeacon);
                         setParseParams(b, parseBeacon);
                     }
                 }
@@ -181,9 +178,9 @@ public class BeaconParseManager {
         //parseBeacon.put("measuredPower",b.getMeasuredPower());
         parseBeacon.put("UUID",b.getProximityUUID());
         parseBeacon.put("lastUpdatedBy", User);
+        if(parseBeacon.getObjectId() == null) parseBeacon.put("discoveredBy", User);
         Log.d(PARSE_INFO, "Attempting to save " + parseBeacon.getObjectId());
         saveParseObject(parseBeacon);
-
     }
 
     private void saveParseObject(final ParseObject parseObj) {

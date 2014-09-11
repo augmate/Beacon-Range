@@ -16,10 +16,6 @@ package com.example.BeaconRange;
 
     public class Beaconizer {
     private static final Region BEACON_SEARCH_MASK = new Region("rid", null, null, null);
-    final String TAG = "BEACONIZER";
-    private BeaconManager beaconManager;
-    boolean isRunning = false;
-    private HashMap<String, Beacon> macToBeacon= new HashMap<String, Beacon>();
     private static final DefaultHashMap<Integer, BeaconAttrib> minorToBeaconAttrib;
     static
     {
@@ -31,6 +27,10 @@ package com.example.BeaconRange;
         minorToBeaconAttrib.put(5, new BeaconAttrib("purple", R.drawable.purple_beacon));
         minorToBeaconAttrib.put(6, new BeaconAttrib("blue", R.drawable.blue_beacon));
     }
+    final String TAG = "BEACONIZER";
+    boolean isRunning = false;
+    private BeaconManager beaconManager;
+    private HashMap<String, Beacon> macToBeacon= new HashMap<String, Beacon>();
 
 
     public Beaconizer(Context context, final IReceiveBeaconsCallbacks receiver, final double beaconCutoffDist) {
@@ -49,7 +49,7 @@ package com.example.BeaconRange;
                 // cut-off point for beacons
                 // when at 15% broadcast power, 4 seems to be far enough to ignore
 
-                List<Beacon> processedBeacons = new ArrayList<Beacon>();
+                ArrayList<Beacon> processedBeacons = new ArrayList<Beacon>();
 
                 for(Beacon beacon : rawBeacons) {
                     String color = minorToBeaconAttrib.get(beacon.getMinor()).getColor();
@@ -57,10 +57,7 @@ package com.example.BeaconRange;
                     float distance = (float) Utils.computeAccuracy(beacon);
                     int rssi = beacon.getRssi(); //Received Signal Strength Indication
                     Utils.Proximity proximity = Utils.computeProximity(beacon);
-
-
                     if(distance < beaconCutoffDist) {
-                    //if(processedBeacon.proximity != Utils.Proximity.FAR){
                         processedBeacons.add(beacon);
                         macToBeacon.put(beacon.getMacAddress(), beacon);
                     }

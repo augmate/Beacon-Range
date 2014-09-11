@@ -2,8 +2,8 @@ package com.example.BeaconRange;
 
 import com.estimote.sdk.Beacon;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public interface IReceiveBeaconsCallbacks {
-    void onReceiveNearbyBeacons(List<Beacon> beacons);
+    void onReceiveNearbyBeacons(ArrayList<Beacon> beacons);
 }
