@@ -26,14 +26,17 @@ public class BeaconParseManager {
     final private String PARSE_INFO = "ParseBeacon";
     final String YOUR_APPLICATION_ID = "kSOqeIVQCitrSI2OEbUnpXVmbVxzmuPK610CzCZA";
     final String YOUR_CLIENT_KEY = "3Ekrf6Ak793ShNkeyAPFdI3UnQnNpExzjmZFzJUZ";
+    TextView viewById;
+
 
     public BeaconParseManager(Activity main, Beaconizer beaconizer) {
         this.beaconizer = beaconizer;
+        viewById = (TextView) main.findViewById(R.id.debug);
         Parse.initialize(main, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
         User = new ParseUser();
         String username = Secure.getString(main.getContentResolver(),Secure.ANDROID_ID);
         String password = "augmate";
-        ((TextView) main.findViewById(R.id.debug)).setText("ATTEMPTING SIGN UP/SIGN IN");
+        viewById.setText("ATTEMPTING SIGN UP/SIGN IN");
         ParseSignUp(username, password);
     }
 
@@ -66,6 +69,7 @@ public class BeaconParseManager {
                     beaconizer.startScanning();
                 } else {
                     Log.d(PARSE_INFO, "Error: " + e.getMessage());
+                    viewById.setText("SIGN FAILED. PLEASE CLOSE THE APPLICATION AND TRY AGAIN.");
                 }
             }
         });
@@ -122,15 +126,18 @@ public class BeaconParseManager {
 
     private void BeaconUpdate(final ArrayList<Beacon> discoveredBeacons) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery(BEACON_QUERY);
+        Log.d(PARSE_INFO, "Starting Beacon Query");
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseBeacons, ParseException e) {
+                Log.d(PARSE_INFO, "Finished Beacon Query. " + parseBeacons.size() + " beacons are in Parse");
                 ArrayList<String> parseMacs = getMacAddresses(parseBeacons);
                 for(Beacon b : discoveredBeacons){
                     for(ParseObject pB : parseBeacons){
+                        Log.d(PARSE_INFO,b.getMacAddress().equals(pB.getString("macAddress")) + ": "+b.getMacAddress()+"V.S."+pB.getString("macAddress"));
                         if(b.getMacAddress().equals(pB.getString("macAddress"))){ //within this loop, update any beacons that are already known by parse
                             beaconToParseObj.put(b, pB);
-                            setParseParams(b, beaconToParseObj.get(b));
-                            break;
+                            setParseParams(b, pB);
+                            //break;
                         }
                     }
                     if(!parseMacs.contains(b.getMacAddress())){ //if that Beacon is not known by Parse, add a brand new beacon to Parse
@@ -174,6 +181,7 @@ public class BeaconParseManager {
         //parseBeacon.put("measuredPower",b.getMeasuredPower());
         parseBeacon.put("UUID",b.getProximityUUID());
         parseBeacon.put("lastUpdatedBy", User);
+        Log.d(PARSE_INFO, "Attempting to save " + parseBeacon.getObjectId());
         saveParseObject(parseBeacon);
 
     }
@@ -182,20 +190,12 @@ public class BeaconParseManager {
         parseObj.saveInBackground(new SaveCallback() {
             public void done(ParseException e) {
                 if (e == null) {
-                    Log.d(PARSE_INFO, "Saved "+ parseObj.getObjectId());
+                    Log.d(PARSE_INFO, "Saved " + parseObj.getObjectId());
                 } else {
-                    Log.d(PARSE_INFO, "Failed to Save "+ parseObj.getObjectId());
+                    Log.d(PARSE_INFO, "Failed to Save " + parseObj.getObjectId());
                     e.printStackTrace();
                 }
             }
         });
-    }
-
-    public void deleteData(){
-        try {
-            ParseObject.deleteAll(new ArrayList(beaconToParseObj.values()));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
     }
 }

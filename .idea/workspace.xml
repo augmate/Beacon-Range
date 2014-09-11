@@ -100,7 +100,7 @@
       <file leaf-file-name="CheckInRangeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="16" selection-start="2598" selection-end="2598" vertical-scroll-proportion="-43.64" vertical-offset="48" max-vertical-offset="3298">
+            <state line="67" column="16" selection-start="2598" selection-end="2598" vertical-scroll-proportion="60.4" vertical-offset="2649" max-vertical-offset="3298">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,23 +108,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BeaconParseManager.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="BeaconParseManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="9" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.7322835" vertical-offset="775" max-vertical-offset="2907">
+            <state line="131" column="36" selection-start="5447" selection-end="5447" vertical-scroll-proportion="-2.48" vertical-offset="2046" max-vertical-offset="3349">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#ParseSignUp#0;class#BeaconParseManager#0" expanded="false" />
-                <element signature="method#ParseLogin#0;class#BeaconParseManager#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Beaconizer.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Beaconizer.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="90" column="29" selection-start="3912" selection-end="3925" vertical-scroll-proportion="-27.32" vertical-offset="626" max-vertical-offset="2142">
+            <state line="16" column="29" selection-start="399" selection-end="399" vertical-scroll-proportion="0.31554523" vertical-offset="0" max-vertical-offset="2125">
               <folding />
             </state>
           </provider>
@@ -133,7 +131,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="59" selection-start="1802" selection-end="1802" vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="884">
+            <state line="9" column="77" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0" vertical-offset="23" max-vertical-offset="884">
               <folding />
             </state>
           </provider>
@@ -178,12 +176,12 @@
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconMinorMap.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/DefaultHashMap.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java" />
         <option value="$PROJECT_DIR$/res/voice_trigger.tld" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java" />
+        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java" />
       </list>
     </option>
   </component>
@@ -361,13 +359,13 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Tools &amp; SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview-javadoc.jar!/" />
-    <property name="options.lastSelected" value="editor" />
+    <property name="options.lastSelected" value="fileColors" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.21510516" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="311" />
@@ -694,12 +692,12 @@
       <workItem from="1410212865846" duration="1359000" />
       <workItem from="1410280154274" duration="6159000" />
       <workItem from="1410363243802" duration="7031000" />
-      <workItem from="1410374100994" duration="5731000" />
+      <workItem from="1410374100994" duration="10475000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130217000" />
+    <option name="totallyTimeSpent" value="134961000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -720,14 +718,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32073012" sideWeight="0.593125" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43676662" sideWeight="0.7675" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37157756" sideWeight="0.7675" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.150625" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43676662" sideWeight="0.2325" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37157756" sideWeight="0.2325" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1074,20 +1072,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="59" selection-start="1802" selection-end="1802" vertical-scroll-proportion="0.0" vertical-offset="227" max-vertical-offset="884">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="29" selection-start="3912" selection-end="3925" vertical-scroll-proportion="-27.32" vertical-offset="626" max-vertical-offset="2142">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -1115,9 +1099,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="77" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0" vertical-offset="23" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="16" selection-start="2598" selection-end="2598" vertical-scroll-proportion="-43.64" vertical-offset="48" max-vertical-offset="3298">
+        <state line="67" column="16" selection-start="2598" selection-end="2598" vertical-scroll-proportion="60.4" vertical-offset="2649" max-vertical-offset="3298">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1126,12 +1117,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="9" selection-start="3673" selection-end="3673" vertical-scroll-proportion="0.7322835" vertical-offset="775" max-vertical-offset="2907">
+        <state line="131" column="36" selection-start="5447" selection-end="5447" vertical-scroll-proportion="-2.48" vertical-offset="2046" max-vertical-offset="3349">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#ParseSignUp#0;class#BeaconParseManager#0" expanded="false" />
-            <element signature="method#ParseLogin#0;class#BeaconParseManager#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="29" selection-start="399" selection-end="399" vertical-scroll-proportion="0.31554523" vertical-offset="0" max-vertical-offset="2125">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1175,7 +1171,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>Android 4.4.2 Glass Development Kit Preview</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

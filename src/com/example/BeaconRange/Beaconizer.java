@@ -15,7 +15,6 @@ package com.example.BeaconRange;
     import java.util.*;
 
     public class Beaconizer {
-
     private static final Region BEACON_SEARCH_MASK = new Region("rid", null, null, null);
     final String TAG = "BEACONIZER";
     private BeaconManager beaconManager;
