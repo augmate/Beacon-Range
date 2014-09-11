@@ -36,8 +36,6 @@
                     android:name="com.google.android.glass.VoiceTrigger"
                     android:resource="@xml/voice_trigger"/>
         </activity>
-        <activity android:name=".activities.CheckInRangeActivity"/>
-
         <service
             android:name="com.estimote.sdk.service.BeaconService"
             android:exported="false"/>
