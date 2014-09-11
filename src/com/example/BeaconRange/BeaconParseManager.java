@@ -2,7 +2,9 @@ package com.example.BeaconRange;
 
 import android.app.Activity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.TextView;
+import android.widget.Toast;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 import com.parse.*;
@@ -22,11 +24,13 @@ public class BeaconParseManager {
     TextView viewById;
     private Beaconizer beaconizer;
     private ParseUser User;
+    private Activity main;
     //private HashMap<Beacon, ParseObject> beaconToParseObj = new HashMap<Beacon, ParseObject>();
 
 
     public BeaconParseManager(Activity main, Beaconizer beaconizer) {
         this.beaconizer = beaconizer;
+        this.main = main;
         viewById = (TextView) main.findViewById(R.id.debug);
         Parse.initialize(main, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
         User = new ParseUser();
@@ -71,8 +75,7 @@ public class BeaconParseManager {
         });
     }
 
-
-    public void put(ArrayList<Beacon> removedBeacons, ArrayList<Beacon> discoveredBeacons, ArrayList<Beacon> consistentBeacons, ArrayList<Beacon> validBeacons){
+    public void put(ArrayList<Beacon> discoveredBeacons, ArrayList<Beacon> validBeacons){
         if(User.isAuthenticated()){
             if(!discoveredBeacons.isEmpty())
                 BeaconUpdate(discoveredBeacons);
@@ -80,13 +83,20 @@ public class BeaconParseManager {
         }
     }
 
-    private void UserUpdate(ArrayList<Beacon> validBeacons) {
+    private void UserUpdate(final ArrayList<Beacon> validBeacons) {
         ParseQuery<ParseObject> query = ParseQuery.getQuery(BEACON_QUERY);
         query.whereContainedIn("macAddress", getMacAddresses(validBeacons));
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseBeacons, ParseException e) {
                 if (e == null) {
                     User.put("userBeaconArray", parseBeacons);
+                    if (!validBeacons.isEmpty())
+                        for(ParseObject pB : parseBeacons){
+                            if(pB.getString("macAddress").equals(validBeacons.get(0).getMacAddress())){
+                                User.put("lastSeenAt", pB);
+                                break;
+                            }
+                        }
                     saveParseObject(User);
                 } else {
                     Log.d(PARSE_INFO, "Error: " + e.getMessage());
@@ -129,7 +139,7 @@ public class BeaconParseManager {
                 ArrayList<String> parseMacs = getMacAddresses(parseBeacons);
                 for(Beacon b : discoveredBeacons){
                     for(ParseObject pB : parseBeacons){
-                        //Log.d(PARSE_INFO,b.getMacAddress().equals(pB.getString("macAddress")) + ": "+b.getMacAddress()+"V.S."+pB.getString("macAddress"));
+                        Log.d(PARSE_INFO,b.getMacAddress().equals(pB.getString("macAddress")) + ": "+b.getMacAddress()+"V.S."+pB.getString("macAddress"));
                         if(b.getMacAddress().equals(pB.getString("macAddress"))){ //within this loop, update any beacons that are already known by parse
                             //beaconToParseObj.put(b, pB);
                             setParseParams(b, pB);
@@ -137,7 +147,6 @@ public class BeaconParseManager {
                         }
                     }
                     if(!parseMacs.contains(b.getMacAddress())){ //if that Beacon is not known by Parse, add a brand new beacon to Parse
-                        Log.d(PARSE_INFO, "NEW DISCOVERY!");
                         ParseObject parseBeacon = new ParseObject(BEACON_QUERY);
                         //beaconToParseObj.put(b, parseBeacon);
                         setParseParams(b, parseBeacon);
@@ -191,6 +200,23 @@ public class BeaconParseManager {
                 } else {
                     Log.d(PARSE_INFO, "Failed to Save " + parseObj.getObjectId());
                     e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public void findUser(String s) {
+        ParseQuery<ParseUser> query = ParseUser.getQuery();
+        query.whereEqualTo("firstName", s);
+        query.include("lastSeenAt");
+        query.findInBackground(new FindCallback<ParseUser>() {
+            public void done(List<ParseUser> objects, ParseException e) {
+                if (e == null && objects.size()>0) {
+                    ParseUser u = objects.get(0);
+                    Toast.makeText(main,u.get("firstName") + " was last seen at Beacon " +
+                            u.getParseObject("lastSeenAt").get("minor") + " around " + u.getUpdatedAt() ,  Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(main,"User not found!" ,  Toast.LENGTH_SHORT).show();
                 }
             }
         });

@@ -106,7 +106,16 @@
       <file leaf-file-name="CheckInRangeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="41" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="2091">
+            <state line="73" column="5" selection-start="3390" selection-end="3390" vertical-scroll-proportion="0.0" vertical-offset="832" max-vertical-offset="2414">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="42" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
               <folding />
             </state>
           </provider>
@@ -115,8 +124,15 @@
       <file leaf-file-name="BeaconParseManager.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="48" selection-start="6074" selection-end="6074" vertical-scroll-proportion="-0.97587717" vertical-offset="2468" max-vertical-offset="3162">
-              <folding />
+            <state line="83" column="5" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.80860215" vertical-offset="338" max-vertical-offset="3145">
+              <folding>
+                <element signature="method#ParseSignUp#0;class#BeaconParseManager#0" expanded="false" />
+                <element signature="method#ParseLogin#0;class#BeaconParseManager#0" expanded="false" />
+                <element signature="e#3433#4188#0" expanded="true" />
+                <element signature="e#4177#4178#0" expanded="true" />
+                <element signature="e#9259#9848#0" expanded="true" />
+                <element signature="e#9837#9838#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -124,7 +140,7 @@
       <file leaf-file-name="Beaconizer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="64" selection-start="3629" selection-end="3645" vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="2210">
+            <state line="75" column="28" selection-start="3609" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="2210">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1420#1436#0" expanded="true" />
@@ -190,8 +206,8 @@
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/IReceiveBeaconsCallbacks.java" />
         <option value="$PROJECT_DIR$/res/layout/show_beacons.xml" />
-        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java" />
         <option value="$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java" />
+        <option value="$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java" />
       </list>
     </option>
   </component>
@@ -402,6 +418,7 @@
     <property name="extract.method.default.visibility" value="private" />
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJava" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -722,22 +739,23 @@
       <workItem from="1410280154274" duration="6159000" />
       <workItem from="1410363243802" duration="7031000" />
       <workItem from="1410374100994" duration="10735000" />
-      <workItem from="1410450325207" duration="3881000" />
+      <workItem from="1410450325207" duration="12823000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139102000" />
+    <option name="totallyTimeSpent" value="148044000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32724902" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32724902" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32724902" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -748,20 +766,19 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32073012" sideWeight="0.593125" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37157756" sideWeight="0.7675" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.44198173" sideWeight="0.7675" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.150625" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37157756" sideWeight="0.2325" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32724902" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33378106" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3273495" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -818,13 +835,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3196">
@@ -1082,11 +1092,6 @@
         <state line="8" column="25" selection-start="129" selection-end="129" vertical-scroll-proportion="0.24028268" vertical-offset="0" max-vertical-offset="566" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="666" selection-end="666" vertical-scroll-proportion="0.6007067" vertical-offset="0" max-vertical-offset="566" />
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../Tools &amp; SDKs/Parse-1.5.1/Parse-1.5.1.jar!/com/parse/ParseObject.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="418" column="0" selection-start="23174" selection-end="23174" vertical-scroll-proportion="0.8382353" vertical-offset="6690" max-vertical-offset="7191" />
@@ -1128,20 +1133,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="64" selection-start="3629" selection-end="3645" vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="2210">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1420#1436#0" expanded="true" />
-            <element signature="e#2280#2288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/xml/voice_trigger.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="3" column="0" selection-start="75" selection-end="75" vertical-scroll-proportion="0.1118421" vertical-offset="0" max-vertical-offset="456">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Documents/android/sdk/sources/android-19/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="254" column="0" selection-start="9325" selection-end="9325" vertical-scroll-proportion="0.3494253" vertical-offset="3809" max-vertical-offset="11033">
           <folding />
         </state>
       </provider>
@@ -1163,17 +1164,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/Beaconizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="28" selection-start="3609" selection-end="3609" vertical-scroll-proportion="0.0" vertical-offset="768" max-vertical-offset="2210">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1420#1436#0" expanded="true" />
+            <element signature="e#2280#2288#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="42" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/activities/CheckInRangeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="41" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.0" vertical-offset="340" max-vertical-offset="2091">
+        <state line="73" column="5" selection-start="3390" selection-end="3390" vertical-scroll-proportion="0.0" vertical-offset="832" max-vertical-offset="2414">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/BeaconRange/BeaconParseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="48" selection-start="6074" selection-end="6074" vertical-scroll-proportion="-0.97587717" vertical-offset="2468" max-vertical-offset="3162">
-          <folding />
+        <state line="83" column="5" selection-start="3180" selection-end="3180" vertical-scroll-proportion="0.80860215" vertical-offset="338" max-vertical-offset="3145">
+          <folding>
+            <element signature="method#ParseSignUp#0;class#BeaconParseManager#0" expanded="false" />
+            <element signature="method#ParseLogin#0;class#BeaconParseManager#0" expanded="false" />
+            <element signature="e#3433#4188#0" expanded="true" />
+            <element signature="e#4177#4178#0" expanded="true" />
+            <element signature="e#9259#9848#0" expanded="true" />
+            <element signature="e#9837#9838#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
