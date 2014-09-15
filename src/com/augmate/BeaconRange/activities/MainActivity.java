@@ -12,12 +12,11 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
+import com.augmate.BeaconRange.*;
 import com.estimote.sdk.Beacon;
-import com.augmate.BeaconRange.BeaconParseManager;
-import com.augmate.BeaconRange.Beaconizer;
-import com.augmate.BeaconRange.IReceiveBeaconsCallbacks;
-import com.augmate.BeaconRange.R;
+import com.estimote.sdk.Utils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,8 +27,7 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
     Beaconizer beaconManager;
     BeaconParseManager parseManager;
     private ArrayList<ImageView> beaconImages = new ArrayList<ImageView>();
-    private ImageView rightImage1, centerImage1, leftImage1;
-    private TextView status;
+    private CustomList adapter;
     private ArrayList<Beacon> validBeacons = new ArrayList<Beacon>();
     private ArrayList<Beacon> discoveredBeacons = new ArrayList<Beacon>();
     private ArrayList<Beacon> removedBeacons = new ArrayList<Beacon>();
@@ -40,13 +38,6 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.show_beacons);
-        Collections.addAll(beaconImages, (ImageView) findViewById(R.id.rightImageView1),
-                (ImageView) findViewById(R.id.centerImageView1),
-                (ImageView) findViewById(R.id.leftImageView1));
-        rightImage1 = beaconImages.get(0);
-        centerImage1 = beaconImages.get(1);
-        leftImage1 = beaconImages.get(2);
-        status = (TextView) findViewById(R.id.status);
         beaconManager = new Beaconizer(this, this, beaconCutoffDist);
         parseManager = new BeaconParseManager(this, beaconManager);
     }
@@ -74,39 +65,18 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
     }
 
     private void displayBeacons(ArrayList<Beacon> validBeacons) {
-        switch (validBeacons.size()) {
-            case 0:
-                status.setText("No beacons detected. Searching...");
-                break;
-            case 1:
-                toggleBeaconIcon(validBeacons.get(0), centerImage1);
-                status.setText(beaconManager.getBeaconColor(validBeacons.get(0)) + " beacon detected");
-                break;
-            case 2:
-                toggleBeaconIcon(validBeacons.get(0), leftImage1);
-                toggleBeaconIcon(validBeacons.get(1), rightImage1);
-                status.setText("You're near a " + beaconManager.getBeaconColor(validBeacons.get(0)) + " beacon and a " +
-                        beaconManager.getBeaconColor(validBeacons.get(1)) + " beacon");
-                break;
-            case 3:
-                toggleBeaconIcon(validBeacons.get(0), leftImage1);
-                toggleBeaconIcon(validBeacons.get(1), rightImage1);
-                toggleBeaconIcon(validBeacons.get(2), centerImage1);
-                status.setText("You're near a " + beaconManager.getBeaconColor(validBeacons.get(0)) + " beacon, a " +
-                        beaconManager.getBeaconColor(validBeacons.get(1)) + " beacon, and a " + beaconManager.getBeaconColor(validBeacons.get(2)) + " beacon");
-                break;
-            default:
-                toggleBeaconIcon(validBeacons.get(0), leftImage1);
-                toggleBeaconIcon(validBeacons.get(1), rightImage1);
-                toggleBeaconIcon(validBeacons.get(2), centerImage1);
-                status.setText("More than 3 beacons in the area");
-                break;
+        ListView list;
+        String[] beaconNames = new String[validBeacons.size()];
+        Integer[] beaconImages = new Integer[validBeacons.size()];
+        for(int i = 0; i < validBeacons.size(); i++){
+            final Beacon b = validBeacons.get(i);
+            beaconNames[i] = "Color: " +beaconManager.getBeaconColor(b)+ "\n"
+                    + "Distance: " + (float) Utils.computeAccuracy(b);
+            beaconImages[i] = beaconManager.getBeaconImage(b);
         }
-    }
-
-    private void toggleBeaconIcon(Beacon b, ImageView imageView) {
-        imageView.setVisibility(View.VISIBLE);
-        imageView.setImageResource(beaconManager.getBeaconImage(b));
+        adapter = new CustomList(MainActivity.this, beaconNames, beaconImages);
+        list=(ListView)findViewById(R.id.list);
+        list.setAdapter(adapter);
     }
 
     public boolean onKeyDown(int keycode, KeyEvent event) {
@@ -135,8 +105,8 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         beaconManager.destroy();
+        super.onDestroy();
     }
 
     @Override

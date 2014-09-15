@@ -20,6 +20,7 @@ public class BeaconParseManager {
     final String YOUR_CLIENT_KEY = "3Ekrf6Ak793ShNkeyAPFdI3UnQnNpExzjmZFzJUZ";
     final private String BEACON_QUERY = "Beacon";
     final private String PARSE_INFO = "ParseBeacon";
+    private TextView status;
     TextView viewById;
     private Beaconizer beaconizer;
     private ParseUser User;
@@ -31,6 +32,7 @@ public class BeaconParseManager {
         this.beaconizer = beaconizer;
         this.main = main;
         viewById = (TextView) main.findViewById(R.id.debug);
+        status = (TextView) main.findViewById(R.id.status);
         Parse.initialize(main, YOUR_APPLICATION_ID, YOUR_CLIENT_KEY);
         User = new ParseUser();
         String username = Secure.getString(main.getContentResolver(),Secure.ANDROID_ID);
@@ -48,6 +50,7 @@ public class BeaconParseManager {
                 if (e == null) {
                     Log.d(PARSE_INFO, "SIGNED UP!");
                     User.increment("RunCount");
+                    status.setText("Connected!");
                     beaconizer.startScanning();
                 } else {
                     Log.d(PARSE_INFO, "SIGN UP FAILED, ATTEMPTING LOGIN");
@@ -65,6 +68,7 @@ public class BeaconParseManager {
                     Log.d(PARSE_INFO, "LOGGED IN!");
                     User = user;
                     User.increment("RunCount");
+                    status.setText("Connected!");
                     beaconizer.startScanning();
                 } else {
                     Log.d(PARSE_INFO, "Error: " + e.getMessage());
