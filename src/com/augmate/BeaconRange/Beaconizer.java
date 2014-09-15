@@ -57,7 +57,7 @@ package com.augmate.BeaconRange;
                     float distance = (float) Utils.computeAccuracy(beacon);
                     int rssi = beacon.getRssi(); //Received Signal Strength Indication
                     Utils.Proximity proximity = Utils.computeProximity(beacon);
-                    if(distance < beaconCutoffDist) {
+                    if(distance < beaconCutoffDist && beacon.getMinor()<7) {
                         processedBeacons.add(beacon);
                         macToBeacon.put(beacon.getMacAddress(), beacon);
                     }

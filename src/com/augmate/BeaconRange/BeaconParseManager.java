@@ -9,6 +9,7 @@ import com.estimote.sdk.Utils;
 import com.parse.*;
 import android.provider.Settings.Secure;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class BeaconParseManager {
     private Beaconizer beaconizer;
     private ParseUser User;
     private Activity main;
-    //private HashMap<Beacon, ParseObject> beaconToParseObj = new HashMap<Beacon, ParseObject>();
+    private HashMap<Beacon, ParseObject> beaconToParseObj = new HashMap<Beacon, ParseObject>();
 
 
     public BeaconParseManager(Activity main, Beaconizer beaconizer) {
@@ -107,25 +108,43 @@ public class BeaconParseManager {
             }
         });
     }
-    /* RELATION UPDATE. FREEZES APPLICATION
+
+    /*
+    An update method based on using Parse Relations instead of Parse arrays. May implement later since it is a more
+    accurate representation of the parse database.
     private void UserUpdate(final ArrayList<Beacon> validBeacons) {
-        final ParseRelation<ParseObject> relation = User.getRelation("myBeacons");
-        ParseQuery<ParseObject> query = relation.getQuery();
-        List<ParseObject> parseBeacons = new ArrayList<ParseObject>();
-        query.findInBackground(new FindCallback<ParseObject>() {
+        User.getRelation("myBeacons").getQuery().findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseBeacons, ParseException e) {
                 if (e == null) {
                     try {
                         ParseRelation<ParseObject> relation = User.getRelation("myBeacons");
                         for (ParseObject r : parseBeacons) relation.remove(r);
-                        User.saveInBackground();
-                        for (Beacon v : validBeacons) relation.add(beaconToParseObj.get(v));
-                        User.saveInBackground();
+                        saveParseObject(User);
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery(BEACON_QUERY);
+                        query.whereContainedIn("macAddress", getMacAddresses(validBeacons));
+                        query.findInBackground(new FindCallback<ParseObject>() {
+                            public void done(List<ParseObject> parseBeacons, ParseException e) {
+                                if (e == null) {
+                                    ParseRelation<ParseObject> relation = User.getRelation("myBeacons");
+                                    for (ParseObject r : parseBeacons) relation.add(r);
+                                    if (!validBeacons.isEmpty())
+                                        for(ParseObject pB : parseBeacons){
+                                            if(pB.getString("macAddress").equals(validBeacons.get(0).getMacAddress())){
+                                                User.put("lastSeenAt", pB);
+                                                break;
+                                            }
+                                        }
+                                    saveParseObject(User);
+                                } else {
+                                    Log.d(PARSE_INFO, "Error: " + e.getMessage());
+                                }
+                            }
+                        });
                     } catch (NullPointerException x) {
-                        Log.d("PARSE", "Error: " + x.getMessage());
+                        Log.d("PARSE", "Error1: " + x.getMessage());
                     }
                 } else {
-                    Log.d("PARSE", "Error: " + e.getMessage());
+                    Log.d("PARSE", "Error2: " + e.getMessage());
                     User.saveInBackground();
                 }
             }
@@ -138,20 +157,20 @@ public class BeaconParseManager {
         Log.d(PARSE_INFO, "Starting Beacon Query");
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseBeacons, ParseException e) {
-                Log.d(PARSE_INFO, "Finished Beacon Query. " + parseBeacons.size() + " beacons are in Parse");
+                //Log.d(PARSE_INFO, "Finished Beacon Query. " + parseBeacons.size() + " beacons are in Parse");
                 ArrayList<String> parseMacs = getMacAddresses(parseBeacons);
                 for(Beacon b : discoveredBeacons){
                     for(ParseObject pB : parseBeacons){
                         Log.d(PARSE_INFO,b.getMacAddress().equals(pB.getString("macAddress")) + ": "+b.getMacAddress()+"V.S."+pB.getString("macAddress"));
                         if(b.getMacAddress().equals(pB.getString("macAddress"))){ //within this loop, update any beacons that are already known by parse
-                            //beaconToParseObj.put(b, pB);
+                            beaconToParseObj.put(b, pB);
                             setParseParams(b, pB);
                             break;
                         }
                     }
                     if(!parseMacs.contains(b.getMacAddress())){ //if that Beacon is not known by Parse, add a brand new beacon to Parse
                         ParseObject parseBeacon = new ParseObject(BEACON_QUERY);
-                        //beaconToParseObj.put(b, parseBeacon);
+                        beaconToParseObj.put(b, parseBeacon);
                         setParseParams(b, parseBeacon);
                     }
                 }

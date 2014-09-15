@@ -11,9 +11,7 @@ import android.speech.RecognizerIntent;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 import com.augmate.BeaconRange.*;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
@@ -28,6 +26,7 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
     BeaconParseManager parseManager;
     private ArrayList<ImageView> beaconImages = new ArrayList<ImageView>();
     private CustomList adapter;
+    private ListView list;
     private ArrayList<Beacon> validBeacons = new ArrayList<Beacon>();
     private ArrayList<Beacon> discoveredBeacons = new ArrayList<Beacon>();
     private ArrayList<Beacon> removedBeacons = new ArrayList<Beacon>();
@@ -40,10 +39,25 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
         setContentView(R.layout.show_beacons);
         beaconManager = new Beaconizer(this, this, beaconCutoffDist);
         parseManager = new BeaconParseManager(this, beaconManager);
+        list=(ListView)findViewById(R.id.list);
+        list.setSelector(android.R.color.transparent);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() { //This listener disables clicks on the listview and interprets its as a onKeyDown action
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+                onKeyDown(KeyEvent.KEYCODE_DPAD_CENTER, null);
+            }
+        });
     }
 
     public void onReceiveNearbyBeacons(ArrayList<Beacon> Beacons) {
         for (ImageView i : beaconImages) i.setVisibility(View.INVISIBLE);
+        //TODO Test how application behaves when only one beacon can be owned by a user at a give time
+        if(!Beacons.isEmpty()){
+            Beacon b = Beacons.get(0);
+            Beacons.clear();
+            Beacons.add(b);
+        }
+
         categorizeBeacons(Beacons);
         ((TextView) findViewById(R.id.debug)).setText("Removed: " + removedBeacons.size() + "\n"
                 + "Discovered: " + discoveredBeacons.size() + "\n"
@@ -65,7 +79,7 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
     }
 
     private void displayBeacons(ArrayList<Beacon> validBeacons) {
-        ListView list;
+
         String[] beaconNames = new String[validBeacons.size()];
         Integer[] beaconImages = new Integer[validBeacons.size()];
         for(int i = 0; i < validBeacons.size(); i++){
@@ -75,7 +89,6 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
             beaconImages[i] = beaconManager.getBeaconImage(b);
         }
         adapter = new CustomList(MainActivity.this, beaconNames, beaconImages);
-        list=(ListView)findViewById(R.id.list);
         list.setAdapter(adapter);
     }
 
@@ -86,10 +99,9 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                     RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
             startActivityForResult(intent, REQUEST_CODE);
-            return true;
         }
         super.onKeyDown(keycode, event);
-        return false;
+        return true;
     }
 
     @Override
