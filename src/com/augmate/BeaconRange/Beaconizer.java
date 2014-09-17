@@ -24,13 +24,16 @@ package com.augmate.BeaconRange;
         minorToBeaconAttrib.put(2, new BeaconAttrib("blue", R.drawable.blue_beacon));
         minorToBeaconAttrib.put(3, new BeaconAttrib("purple", R.drawable.purple_beacon));
         minorToBeaconAttrib.put(4, new BeaconAttrib("green", R.drawable.green_beacon));
-        minorToBeaconAttrib.put(5, new BeaconAttrib("purple", R.drawable.purple_beacon));
+        minorToBeaconAttrib.put(5, new BeaconAttrib("blue", R.drawable.blue_beacon));
         minorToBeaconAttrib.put(6, new BeaconAttrib("blue", R.drawable.blue_beacon));
+        //minorToBeaconAttrib.put(7, new BeaconAttrib("blue", R.drawable.blue_beacon));
+        //minorToBeaconAttrib.put(8, new BeaconAttrib("green", R.drawable.green_beacon));
+        //minorToBeaconAttrib.put(9, new BeaconAttrib("purple", R.drawable.purple_beacon));
     }
     final String TAG = "BEACONIZER";
     boolean isRunning = false;
     private BeaconManager beaconManager;
-    private HashMap<String, Beacon> macToBeacon= new HashMap<String, Beacon>();
+    private HashMap<String, Beacon> macToBeacon = new HashMap<String, Beacon>();
 
 
     public Beaconizer(Context context, final IReceiveBeaconsCallbacks receiver, final double beaconCutoffDist) {

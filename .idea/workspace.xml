@@ -106,21 +106,11 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="38" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.45212767" vertical-offset="459" max-vertical-offset="2159">
-              <folding>
-                <element signature="e#1592#1923#0" expanded="true" />
-                <element signature="e#1912#1913#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CustomList.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/CustomList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="60" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0" vertical-offset="65" max-vertical-offset="629">
+            <state line="26" column="29" selection-start="760" selection-end="760" vertical-scroll-proportion="0.5219298" vertical-offset="204" max-vertical-offset="2397">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1669#2000#0" expanded="true" />
+                <element signature="e#1989#1990#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,19 +119,24 @@
       <file leaf-file-name="BeaconParseManager.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/BeaconParseManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="100" column="0" selection-start="4100" selection-end="4100" vertical-scroll-proportion="0.0" vertical-offset="1274" max-vertical-offset="4046">
+            <state line="223" column="24" selection-start="10390" selection-end="10390" vertical-scroll-proportion="-13.0" vertical-offset="3466" max-vertical-offset="4335">
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#975#996#0" expanded="true" />
+                <element signature="e#1819#2316#0" expanded="true" />
+                <element signature="e#2305#2306#0" expanded="true" />
+                <element signature="e#2494#3080#0" expanded="true" />
+                <element signature="e#3069#3070#0" expanded="true" />
                 <element signature="e#3616#4371#0" expanded="true" />
                 <element signature="e#4360#4361#0" expanded="true" />
                 <element signature="e#7013#8321#0" expanded="true" />
                 <element signature="e#8310#8311#0" expanded="true" />
                 <element signature="e#8465#8473#0" expanded="true" />
                 <element signature="e#8948#8956#0" expanded="true" />
-                <element signature="e#10022#10389#0" expanded="true" />
-                <element signature="e#10378#10379#0" expanded="true" />
-                <element signature="e#10608#11197#0" expanded="true" />
-                <element signature="e#11186#11187#0" expanded="true" />
+                <element signature="e#10057#10672#0" expanded="true" />
+                <element signature="e#10661#10662#0" expanded="true" />
+                <element signature="e#10891#11480#0" expanded="true" />
+                <element signature="e#11469#11470#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,7 +145,7 @@
       <file leaf-file-name="Beaconizer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="53" selection-start="2862" selection-end="2862" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2074">
+            <state line="27" column="85" selection-start="1240" selection-end="1240" vertical-scroll-proportion="0.0" vertical-offset="459" max-vertical-offset="2125">
               <folding />
             </state>
           </provider>
@@ -163,15 +158,6 @@
           </provider>
           <provider editor-type-id="text-editor">
             <state line="17" column="48" selection-start="884" selection-end="884" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="680">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list_single.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/list_single.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="35" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
               <folding />
             </state>
           </provider>
@@ -224,10 +210,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1928" />
+    <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -239,10 +225,13 @@
           <State>
             <id>Data flow issues</id>
           </State>
+          <State>
+            <id>Imports</id>
+          </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>UnnecessaryLocalVariable</id>
+            <id>UNUSED_IMPORT</id>
           </State>
         </selected-state>
       </profile-state>
@@ -415,14 +404,14 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Tools &amp; SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview-javadoc.jar!/" />
-    <property name="options.lastSelected" value="fileColors" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Tools_and_SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview.jar!/" />
+    <property name="options.lastSelected" value="preferences.sourceCode" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.21510516" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.WIDTH" value="450" />
@@ -432,6 +421,7 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="LayoutCode.rearrangeEntriesJava" value="true" />
     <property name="SearchEverywhereHistory" value="" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager2.SHOW" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -754,23 +744,23 @@
       <workItem from="1410363243802" duration="7031000" />
       <workItem from="1410374100994" duration="10735000" />
       <workItem from="1410450325207" duration="14875000" />
-      <workItem from="1410789680879" duration="19452000" />
+      <workItem from="1410789680879" duration="33295000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="169548000" />
+    <option name="totallyTimeSpent" value="183391000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33333334" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.333125" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284055" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40547588" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -781,14 +771,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31995776" sideWeight="0.59270835" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37697995" sideWeight="0.6411458" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3546284" sideWeight="0.733125" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20833333" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37697995" sideWeight="0.35885417" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3546284" sideWeight="0.266875" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -893,8 +883,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1592#1923#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1669#2000#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -918,8 +909,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1592#1923#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1669#2000#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -950,8 +942,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1592#1923#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1669#2000#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -992,8 +985,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1592#1923#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1669#2000#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1034,8 +1028,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="e#1592#1923#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1669#2000#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1077,11 +1072,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../Tools &amp; SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview.jar!/com/estimote/sdk/BeaconManager.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="0" selection-start="4480" selection-end="4480" vertical-scroll-proportion="0.8729373" vertical-offset="1018" max-vertical-offset="1649" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/android/sdk/sources/android-19/com/android/internal/os/ZygoteInit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="793" column="0" selection-start="27389" selection-end="27389" vertical-scroll-proportion="0.8416149" vertical-offset="12191" max-vertical-offset="12835" />
@@ -1102,19 +1092,9 @@
         <state line="8" column="25" selection-start="129" selection-end="129" vertical-scroll-proportion="0.24028268" vertical-offset="0" max-vertical-offset="566" />
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/../Tools &amp; SDKs/Parse-1.5.1/Parse-1.5.1.jar!/com/parse/ParseObject.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="418" column="0" selection-start="23174" selection-end="23174" vertical-scroll-proportion="0.8382353" vertical-offset="6690" max-vertical-offset="7191" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Documents/android/sdk/sources/android-19/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="840" column="0" selection-start="28253" selection-end="28253" vertical-scroll-proportion="0.33264464" vertical-offset="13320" max-vertical-offset="20978" />
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../Tools &amp; SDKs/Parse-1.5.1/Parse-1.5.1.jar!/com/parse/ParseCommand.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="0" selection-start="3352" selection-end="3352" vertical-scroll-proportion="0.832244" vertical-offset="859" max-vertical-offset="1343" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
@@ -1164,9 +1144,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/CustomList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="60" selection-start="938" selection-end="938" vertical-scroll-proportion="0.6296296" vertical-offset="0" max-vertical-offset="648">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/list_single.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="35" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="357">
+        <state line="12" column="35" selection-start="518" selection-end="518" vertical-scroll-proportion="0.32535884" vertical-offset="0" max-vertical-offset="627">
           <folding />
         </state>
       </provider>
@@ -1183,45 +1172,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/Beaconizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="53" selection-start="2862" selection-end="2862" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2074">
+        <state line="27" column="85" selection-start="1240" selection-end="1240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/BeaconParseManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="0" selection-start="4100" selection-end="4100" vertical-scroll-proportion="0.0" vertical-offset="1274" max-vertical-offset="4046">
+        <state line="223" column="24" selection-start="10390" selection-end="10390" vertical-scroll-proportion="-13.0" vertical-offset="3466" max-vertical-offset="4335">
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#975#996#0" expanded="true" />
+            <element signature="e#1819#2316#0" expanded="true" />
+            <element signature="e#2305#2306#0" expanded="true" />
+            <element signature="e#2494#3080#0" expanded="true" />
+            <element signature="e#3069#3070#0" expanded="true" />
             <element signature="e#3616#4371#0" expanded="true" />
             <element signature="e#4360#4361#0" expanded="true" />
             <element signature="e#7013#8321#0" expanded="true" />
             <element signature="e#8310#8311#0" expanded="true" />
             <element signature="e#8465#8473#0" expanded="true" />
             <element signature="e#8948#8956#0" expanded="true" />
-            <element signature="e#10022#10389#0" expanded="true" />
-            <element signature="e#10378#10379#0" expanded="true" />
-            <element signature="e#10608#11197#0" expanded="true" />
-            <element signature="e#11186#11187#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/CustomList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="60" selection-start="938" selection-end="938" vertical-scroll-proportion="0.0" vertical-offset="126" max-vertical-offset="629">
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#10057#10672#0" expanded="true" />
+            <element signature="e#10661#10662#0" expanded="true" />
+            <element signature="e#10891#11480#0" expanded="true" />
+            <element signature="e#11469#11470#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/augmate/BeaconRange/activities/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="38" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.45212767" vertical-offset="459" max-vertical-offset="2159">
+        <state line="26" column="29" selection-start="760" selection-end="760" vertical-scroll-proportion="0.5219298" vertical-offset="204" max-vertical-offset="2397">
           <folding>
-            <element signature="e#1592#1923#0" expanded="true" />
-            <element signature="e#1912#1913#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1669#2000#0" expanded="true" />
+            <element signature="e#1989#1990#0" expanded="true" />
           </folding>
         </state>
       </provider>

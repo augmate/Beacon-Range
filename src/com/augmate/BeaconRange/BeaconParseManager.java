@@ -210,7 +210,7 @@ public class BeaconParseManager {
         parseBeacon.put("UUID",b.getProximityUUID());
         parseBeacon.put("lastUpdatedBy", User);
         if(parseBeacon.getObjectId() == null) parseBeacon.put("discoveredBy", User);
-        Log.d(PARSE_INFO, "Attempting to save " + parseBeacon.getObjectId());
+        Log.d(PARSE_INFO, "Attempting to save " + beaconizer.getBeaconColor(b) +" "+ parseBeacon.getObjectId());
         saveParseObject(parseBeacon);
     }
 
@@ -218,7 +218,10 @@ public class BeaconParseManager {
         parseObj.saveInBackground(new SaveCallback() {
             public void done(ParseException e) {
                 if (e == null) {
-                    Log.d(PARSE_INFO, "Saved " + parseObj.getObjectId());
+                    //if(parseObj instanceof ParseUser)
+                      //  Log.d(PARSE_INFO, "Saved User" + parseObj.getString("firstName") + " " +parseObj.getObjectId());
+                    //else
+                        Log.d(PARSE_INFO, "Saved Beacon" + parseObj.getInt("minor") + " "+ parseObj.getObjectId());
                 } else {
                     Log.d(PARSE_INFO, "Failed to Save " + parseObj.getObjectId());
                     e.printStackTrace();

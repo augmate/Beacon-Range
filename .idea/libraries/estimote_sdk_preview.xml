@@ -1,12 +1,13 @@
 <component name="libraryTable">
   <library name="estimote-sdk-preview">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Tools &amp; SDKs/Parse-1.5.1/Parse-1.5.1.jar!/" />
-      <root url="jar://$PROJECT_DIR$/../Tools &amp; SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Tools_and_SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/../Tools &amp; SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../Tools_and_SDKs/EstimoteSDK/EstimoteSDK/estimote-sdk-preview-javadoc.jar!/" />
     </JAVADOC>
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../Tools_and_SDKs/EstimoteSDK/Demos/src/main/java" />
+    </SOURCES>
   </library>
 </component>

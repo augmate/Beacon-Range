@@ -11,13 +11,15 @@ import android.speech.RecognizerIntent;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import com.augmate.BeaconRange.*;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.Utils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
     private static final int REQUEST_CODE = 10;
@@ -57,12 +59,12 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
             Beacons.clear();
             Beacons.add(b);
         }
-
+        boolean nothingChanged = validBeacons.containsAll(Beacons);
         categorizeBeacons(Beacons);
         ((TextView) findViewById(R.id.debug)).setText("Removed: " + removedBeacons.size() + "\n"
                 + "Discovered: " + discoveredBeacons.size() + "\n"
                 + "Valid: " + validBeacons.size());
-        parseManager.put(discoveredBeacons, validBeacons);
+        if(!nothingChanged)parseManager.put(discoveredBeacons, validBeacons);
         displayBeacons(validBeacons);
     }
 
@@ -79,7 +81,6 @@ public class MainActivity extends Activity implements IReceiveBeaconsCallbacks {
     }
 
     private void displayBeacons(ArrayList<Beacon> validBeacons) {
-
         String[] beaconNames = new String[validBeacons.size()];
         Integer[] beaconImages = new Integer[validBeacons.size()];
         for(int i = 0; i < validBeacons.size(); i++){
